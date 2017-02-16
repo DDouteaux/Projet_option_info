@@ -1,0 +1,41 @@
+\begin{frame}
+	\frametitle{Prise de contact PAr}
+	Récupération de diverses bases de données :
+	\begin{itemize}
+		\item Des contes de fée
+		\item Des conversations de films
+		\item Du texte de Wikipédia
+		\item Des liens vers des BDDs
+	\end{itemize}
+	\begin{center}
+		\textbf{Des bases intéressantes, mais peu liées à nos objectifs.}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Des bases de données d'avis}
+	\fontsize{9pt}{9pt}\selectfont
+	\begin{table}[ht]
+		\centering
+		\begin{tabular}{cp{2.8cm}ccc}
+			\toprule
+			&\textbf{Nom} & \textbf{Type} & \textbf{Quantité} & \textbf{Origine} \\
+			\midrule
+			\textcolor{bordeau}{\faFilm} & \textit{Large Movie Review Dataset} & \textcolor{bordeau}{Cinéma} & $25 000\times2$ & Stanford \\
+			&&& \\
+			\textcolor{bordeau}{\faFilm} & \textit{Rotten Tomatoes Dataset} & \textcolor{bordeau}{Cinéma} & $1,6$Mb & Kaggle \\
+			&&& \\
+			\textcolor{bluenight}{\faTwitter} & \textit{Twitter Sentiment Corpus} & \textcolor{bluenight}{Tweets} & $5500$ & Niek Sanders \\
+			&&& \\
+			\textcolor{bluenight}{\faTwitter} & \textit{Twitter Sentiment Analysis Corpus} & \textcolor{bluenight}{Tweets} & $1 578 627$ & ? \\
+			&&& \\
+			\textcolor{vertforet}{\faCommentsO} & \textit{Sentiment Analyses Dataset} & \textcolor{vertforet}{Divers} & $9 645$ & Stanford \\
+			&&& \\
+			\textcolor{vertforet}{\faCommentsO} & \textit{UMICH S1650} & \textcolor{vertforet}{Blogs} & $40 000$ & Kaggle \\
+			\bottomrule
+		\end{tabular}
+	\end{table}
+	\begin{center}
+		\textbf{Nécessité d'agglomérer les bases entre elles.}
+	\end{center}
+\end{frame}

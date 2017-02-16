@@ -1,0 +1,17 @@
+Traitement de langue naturel ancien pour traduction automatique et autres.
+
+Oui/Non : analyse syntaxique pour faire un arbre syntaxique (extraire structure phrase) -> bien, mais lourd, et avec syntaxe libre on échoue en général dans la construction de cet arbre. Peut servir pour traduction et recherche erreur...On l'exclue ici.
+Il reste alors des techniques pour chercher dans des ``phrases'' (successions de noms) -> temps, nom, GN,... (syntagme) /!\ on n'est pas basé sur des mots clés
+Principalement, on va regarder le chuncking. On a une phrase, et onveut savoir avec du deep learning si on peut en extraire des informations. Création matrice thème-document : enlever les mots usuels, récupérer la souche des mots pour défaire les accord genres/nombres/temps, possibilité de faire oui/non pour la présence, garder le nombre d'occurences (OTF, IDF)...
+L'idée de Deep Learning ici c'est de dire qu'on ne prépare presque rien et qu'on donne les documents en entrée d'un réseau qui va trouver les descripteurs. L'autre solution est de récupérer des RN qui fonctionneraient sur image et l'appliquer au texte en paufinant.
+
+À faire :
+- Une exploration des techniques et méthodes (cf. site de Stanford Deep Learning (NLP)) + présentation rapide sur le sujet.
+- Ensuite on cadrera mieux les objectifs de cette étude.
+Torch  -  Caffe
+Pour les ngrammes : LSTM si le réseau a besoin de se rappeler d'éléments particuliers.
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

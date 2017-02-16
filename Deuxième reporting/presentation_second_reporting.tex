@@ -1,0 +1,63 @@
+\documentclass{beamer}
+
+% Thème personnalisé
+\usetheme{lines}
+
+% Quelques importations pratiques
+\usepackage{ifthen}      % pour des confitions dans les commandes
+\usepackage{multicol}    % environnement multi colonnes
+\usepackage{booktabs}    % pour des tables propres et sans colonnes
+\usepackage{pifont}      % des symboles en plus
+\usepackage{fontawesome} % utilisation de police d'icônes web
+
+% Les variables générales proposées par Beamer
+\title{Projet d'option informatique}
+\subtitle{Deep Learning, traitement de langues naturelles et text mining}
+\author{Damien \textsc{Douteaux} -- Vincent \textsc{Hocquemiller} -- Louis \textsc{Redonnet}}
+\date{Jeudi 16 février 2017}
+
+% Des commandes ponctuelles pour la présentation
+\newcommand{\plus}{\textcolor{vertforet}{\faPlus{}}}
+\newcommand{\moins}{\textcolor{bordeau}{\faMinus{}}}
+\newcommand{\neutral}{\textcolor{bluenight}{\ding{70}}}
+
+% Contenu de la présentation
+% Le choix est ici de séparer chaque section dans un fichier contenu
+% dans le répertoire text/. Cela permet d'y voir plus clair et de s'y
+% retrouver plus vite dans le document
+\begin{document}
+
+% Slide de titre
+\begin{frame}[plain]
+	\titlepage
+\end{frame}
+
+% Sommaire
+\section{Sommaire}
+\input{text/sommaire}
+
+% Détails sur l'état de l'art
+\section{Projets envisagés}
+\input{text/etat_art}
+
+% Explication du choix du sujet
+\section{Choix du sujet}
+\input{text/choix_sujet}
+
+% Explications sur les bases de données
+\section{Base de données}
+\input{text/bdd}
+
+% Premières réflexions sur les réseaux de neurones
+\section{Réseau}
+\input{text/network}
+
+% Retours sur la gestion de projet
+\section{Gestion de projet}
+\input{text/gestion_projet}
+
+% Conclusion du rapport
+\section{Conclusion}
+\input{text/conclusion}
+
+\end{document}
