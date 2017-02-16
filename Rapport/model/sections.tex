@@ -1,0 +1,80 @@
+% Renew section like command
+
+\newcommand\invisiblesection[1]{%
+  \addcontentsline{toc}{section}{\protect#1}%
+  \sectionmark{#1}
+}
+
+\frenchbsetup{IndentFirst=false}
+
+
+
+%% New paragraph style (general code)
+\newlength{\mytextsize}
+
+\makeatletter
+	\setlength{\mytextsize}{\f@size pt}
+\makeatother
+
+\newcommand\crule[3][themeColor]{\textcolor{#1}{\rule{#2}{#3}}}
+
+\newenvironment{generalparagraph}[4]{
+  \renewcommand{\currentColor}{#4}
+  \noindent\hspace*{-.05cm}\raisebox{-.2cm}[0cm][.25cm]{
+    \tikz{%
+      \node (part_title) [draw, color=\headersColor, text depth=0.25ex, minimum width=3.1cm, align=left] at (0,0) {#2{{#1}}};%
+      \fill [\headersColor] (part_title.north west) rectangle ([xshift=-.1cm]part_title.south west);%
+    }%
+  }%
+  \hspace{1cm}%
+}{
+    \ignorespacesafterend\hspace*{\fill}\linebreak
+    \renewcommand{\currentColor}{\headersColor}
+}
+
+\newenvironment{generalminiparagraph}[4]{
+    \renewcommand{\currentColor}{#4}
+    \par\vspace{0.3cm}\noindent\tikz{\draw [color=#4, fill=#4] (0,0) rectangle (\mytextsize/2-1,\mytextsize-2);
+			} \textcolor{#4}{#2{{#1}}}
+    \hspace{1cm}\noindent#3
+}{
+    \par\vspace{0.3cm}\ignorespacesafterend
+    \renewcommand{\currentColor}{themeColor}
+}
+
+%% Several types of useful paragraphs (using previous source code)
+% Avec une en-tête de paragraphe complète ||| || |
+\newenvironment{remarque}{\begin{generalparagraph}{Remark}{\bfseries}{\normalfont}{vertforet}}{\end{generalparagraph}}
+\newenvironment{attention}{\begin{generalparagraph}{Attention}{\bfseries}{\normalfont}{bordeau}}{\end{generalparagraph}}
+\newenvironment{information}{\begin{generalparagraph}{Information}{\bfseries}{\normalfont}{orange}}{\end{generalparagraph}}
+\newenvironment{paragraphe}[1]{\begin{generalparagraph}{#1}{\bfseries}{\normalfont}{themeColor}}{\end{generalparagraph}}
+\newenvironment{question}[1]{\begin{generalparagraph}{Question #1}{\bfseries\large}{\normalfont}{themeColor}}{\end{generalparagraph}}
+% Avec une en-tête de paragraphe réduite ||
+\newenvironment{convention}{\begin{generalminiparagraph}{Convention}{\bfseries}{\normalfont}{vertforet}}{\end{generalminiparagraph}}
+\newenvironment{lecture}{\begin{generalminiparagraph}{Lecture}{\bfseries}{\normalfont}{vertforet}}{\end{generalminiparagraph}}
+\newenvironment{notation}{\begin{generalminiparagraph}{Notation}{\bfseries}{\normalfont}{vertforet}}{\end{generalminiparagraph}}
+\newenvironment{demonstration}{\begin{generalminiparagraph}{Démonstration}{\bfseries}{\normalfont}{orange}}{\proved\end{generalminiparagraph}}
+\newenvironment{exempleInterne}{\begin{generalminiparagraph}{Exemple}{\bfseries}{\normalfont}{themeColor}}{\end{generalminiparagraph}}
+\newenvironment{exemple}[1]{\begin{exempleInterne}\textit{#1}\end{exempleInterne}}
+
+%% Unumbered sections (Conclusion, Abstract, Bibliography)
+\newcommand{\nnsection}[1]{\section*{#1}\addcontentsline{toc}{section}{#1}}
+\newcommand{\appendixsection}{\newpage\invisiblesection{Annexes}\input{text/Pages_gnl/annexe.tex}}
+
+%% New subParagraph command
+\newcommand{\subParagraphe}[1]{\par\vspace{0.3cm}\noindent\textcolor{\currentColor}{\textbf{\textit{#1}}}\hspace{.5cm}}
+
+%% New subsubParagraph command
+\newcommand{\subsubParagraphe}[1]{\par\vspace{0.2cm}\textbf{#1}\hspace{0.5cm}}
+
+%% Pour ne pas avoir le "Références" qui s'affiche en créant la bibliographie
+\makeatletter
+\def\pasdetitreici{\def\section{\@ifstar\@gobble\@gobble}}
+\makeatother
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../Rapport_dreches"
+%%% End:

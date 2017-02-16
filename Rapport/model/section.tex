@@ -1,0 +1,59 @@
+%
+% Application du style de la section.
+% Params :
+%    1 - Le format de la section
+%    2 - Le numéro de section
+%    3 - Le label de la section
+%
+\makeatletter
+\newcommand{\applySectionFormat}[3]{%
+  \ifnum\pdf@strcmp{#1}{withImage}=0%
+  \sectionWithImage{#2}{#3}%
+  \else\ifnum\pdf@strcmp{#1}{default}=0%
+  \sectionDefault{#2}{#3}%
+  \fi\fi
+}
+
+\newcommand{\applySubsectionFormat}[3]{%
+  \ifnum\pdf@strcmp{#1}{default}=0%
+  \subsectionDefault{#2}{#3}%
+  \else\ifnum\pdf@strcmp{#1}{light}=0%
+  \subsectionLight{#2}{#3}%
+  \fi\fi
+}
+
+\newcommand{\applySubsubsectionFormat}[3]{%
+  \ifnum\pdf@strcmp{#1}{default}=0%
+  \subsubsectionDefault{#2}{#3}%
+  \else\ifnum\pdf@strcmp{#1}{light}=0%
+  \subsubsectionLight{#2}{#3}%
+  \fi\fi
+}
+\makeatother
+
+%
+% Redéfinition de l'appel à la création d'une section
+%
+\titleformat{\section}
+{\normalfont}{}{0em}
+{\applySectionFormat{\sectionFormat}{\thesection}{#1}}[\addvspace{0ex}]
+
+%
+% Redéfinition de l'appel à la création d'une subsection
+%
+\titleformat{\subsection}
+{\normalfont}{}{0em}
+{\applySubsectionFormat{\subsectionFormat}{\thesubsection}{#1}}[\addvspace{0ex}]
+
+%
+% Redéfinition de l'appel à la création d'une subsection
+%
+\titleformat{\subsubsection}
+{\normalfont}{}{0em}
+{\applySubsubsectionFormat{\subsubsectionFormat}{\thesubsubsection}{#1}}[\addvspace{0ex}]
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../Template"
+%%% End:

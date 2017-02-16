@@ -1,0 +1,61 @@
+%% Defining our itemize bullet
+\newcommand\mybullet{\tikz{\draw [color=\currentColor, fill=\currentColor] (0,0) circle [radius=.03cm]; \draw [color=\currentColor,thick] (0,0) circle [radius=0.1cm];}}
+
+\newcommand\itemperso[1]{\item[\mybullet]~\textit{\textcolor{\currentColor}{#1}}\ifthenelse{\equal{#1}{}}{}{\hspace{0.5cm}}}
+
+\newcommand{\tabitem}{~~\llap{\mybullet}~~}
+
+\newcommand\subitemperso[1]{\item[\textcolor{\currentColor}{$\triangleright$}] \textit{\textcolor{\currentColor}{#1}}\ifthenelse{\equal{#1}{}}{}{\hspace{0.2cm}}}
+
+\newcommand\subsubitemperso[1]{\item[\textcolor{\currentColor}{$\star$}] \textit{\textcolor{\currentColor}{#1}}\ifthenelse{\equal{#1}{}}{}{\hspace{0.2cm}}}
+
+%% New items for school work questions
+\newcommand\exquestion[1]{\vspace{.1cm}\item[\mybullet] \textcolor{\currentColor}{#1}\ifthenelse{\equal{#1}{}}{}{\hspace{0.5cm}}}
+
+\newcommand\exsubquestion[1]{\item[\textcolor{\currentColor}{$\triangleright$}] \textcolor{\currentColor}{#1}\ifthenelse{\equal{#1}{}}{}{\hspace{0.2cm}}}
+
+\newcommand\exsubsubquestion[1]{\item[\textcolor{\currentColor}{$\star$}] \textcolor{\currentColor}{#1}\ifthenelse{\equal{#1}{}}{}{\hspace{0.2cm}}}
+
+%% Commands to define tick, cross and neutral mark
+\newcommand{\cmark}{\textcolor{vertforet}{\ding{51}}}%
+\newcommand{\xmark}{\textcolor{bordeau}{\ding{55}}}%
+\newcommand{\neutral}{\textcolor{gray}{\ding{70}}}%
+\newcommand\testStatus[1]{\ifthenelse{\equal{#1}{OK}}{\cmark}{\ifthenelse{\equal{#1}{NSP}}{\neutral}{\xmark}}}
+
+\newcommand\itemtest[3]{\itemperso{}\begin{minipage}[t]{\dimexpr\linewidth-.5cm\relax}%
+	\textit{\textcolor{themeColor}{#1}}\ifthenelse{\equal{#1}{}}{}{\hspace{0.5cm}}#2\end{minipage}%
+	\hspace{\fill}\testStatus{#3}}
+\newcommand\subitemtest[3]{\subitemperso{}\begin{minipage}[t]{\dimexpr\linewidth-.5cm\relax}%
+	\textit{\textcolor{themeColor}{#1}}\ifthenelse{\equal{#1}{}}{}{\hspace{0.5cm}}#2\end{minipage}%
+	\hspace{\fill}\testStatus{#3}}
+\newcommand\subsubitemtest[3]{\subsubitemperso{}\begin{minipage}[t]{\dimexpr\linewidth-.5cm\relax}
+	\textit{\textcolor{themeColor}{#1}}\ifthenelse{\equal{#1}{}}{}{\hspace{0.5cm}}#2\end{minipage}%
+	\hspace{\fill}\testStatus{#3}}
+
+\newcommand\itemtestdouble[4]{\itemperso{}\begin{minipage}[t]{\dimexpr\linewidth-1cm\relax}%
+	\textit{\textcolor{themeColor}{#1}}\ifthenelse{\equal{#1}{}}{}{\hspace{0.5cm}}#2\end{minipage}%
+	\hspace{\fill}\testStatus{#3}\hspace{\fill}\testStatus{#4}}
+\newcommand\subitemtestdouble[4]{\subitemperso{}\begin{minipage}[t]{\dimexpr\linewidth-1cm\relax}%
+	\textit{\textcolor{themeColor}{#1}}\ifthenelse{\equal{#1}{}}{}{\hspace{0.5cm}}#2\end{minipage}%
+	\hspace{\fill}\testStatus{#3}\hspace{\fill}\testStatus{#4}}
+\newcommand\subsubitemtestdouble[4]{\subsubitemperso{}\begin{minipage}[t]{\dimexpr\linewidth-1cm\relax}
+	\textit{\textcolor{themeColor}{#1}}\ifthenelse{\equal{#1}{}}{}{\hspace{0.5cm}}#2\end{minipage}%
+	\hspace{\fill}\testStatus{#3}\hspace{\fill}\testStatus{#4}}
+
+\newcommand\itemtesttriple[5]{\itemperso{}\begin{minipage}[t]{\dimexpr\linewidth-1.5cm\relax}%
+	\textit{\textcolor{themeColor}{#1}}\ifthenelse{\equal{#1}{}}{}{\hspace{0.5cm}}#2\end{minipage}%
+	\hspace{\fill}\testStatus{#3}\hspace{\fill}\testStatus{#4}\hspace{\fill}\testStatus{#5}}
+\newcommand\subitemtesttriple[5]{\subitemperso{}\begin{minipage}[t]{\dimexpr\linewidth-1.5cm\relax}%
+	\textit{\textcolor{themeColor}{#1}}\ifthenelse{\equal{#1}{}}{}{\hspace{0.5cm}}#2\end{minipage}%
+	\hspace{\fill}\testStatus{#3}\hspace{\fill}\testStatus{#4}\hspace{\fill}\testStatus{#5}}
+\newcommand\subsubitemtesttriple[5]{\subsubitemperso{}\begin{minipage}[t]{\dimexpr\linewidth-1.5cm\relax}
+	\textit{\textcolor{themeColor}{#1}}\ifthenelse{\equal{#1}{}}{}{\hspace{0.5cm}}#2\end{minipage}%
+	\hspace{\fill}\testStatus{#3}\hspace{\fill}\testStatus{#4}\hspace{\fill}\testStatus{#5}}
+
+
+\newcommand\testLabels{\noindent\hspace*{\dimexpr\linewidth-1.3cm\relax}\rule{1.3cm}{.4pt}\par\noindent\hspace*{\dimexpr\linewidth-1.3cm\relax}\textbf{V}\hspace{\fill}\textbf{S}\hspace{\fill}\textbf{M}\par\noindent\hspace*{\dimexpr\linewidth-1.3cm\relax}\rule[0.66\baselineskip]{1.3cm}{.4pt}}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../Rapport_metro"
+%%% End:

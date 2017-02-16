@@ -1,0 +1,69 @@
+%
+% Méthode pour l'inclusion automatique de fichier/élément à l'endroit désiré
+% Params :
+%     1 - Elément à inclure
+%     2 - Configuration pour le choix (\whereXXX)
+%     3 - Endroit à tester
+%     4 - S'il y a possibilité de ne pas inclure l'élément
+%
+\makeatletter
+\newcommand{\whereIncludeFile}[4]{
+  \ifnum\pdf@strcmp{#4}{true}=0
+  \ifnum\pdf@strcmp{#2}{#3}=0
+  #1
+  \fi\fi
+}
+\makeatother
+
+\newcommand{\includeTOC}[1]{
+  \whereIncludeFile{\clearpage\tableofcontents\TOCSeparator}{\whereTOC}{#1}{\inclureTOC}
+}
+
+\newcommand{\includeLOF}[1]{
+  \whereIncludeFile{\listoffigures\LOFLOTSeparator}{\whereLOF}{#1}{\inclureLOF}
+}
+
+\newcommand{\includeLOT}[1]{
+  \whereIncludeFile{\listoftables\LOFLOTSeparator}{\whereLOT}{#1}{\inclureLOT}
+}
+
+\newcommand{\includeResume}[1]{
+  \whereIncludeFile{\input{text/Pages_gnl/resume.tex}}{\whereResume}{#1}{\inclureResume}
+}
+
+\newcommand{\includeAbstract}[1]{
+  \whereIncludeFile{\input{text/Pages_gnl/abstract.tex}}{\whereResume}{#1}{\inclureAbstract}
+}
+
+\newcommand{\includeRemerciements}[1]{
+  \whereIncludeFile{\input{text/Pages_gnl/remerciements.tex}}{\whereRemerciements}{#1}{\inclureRemerciements}
+}
+
+\newcommand{\includeIntroduction}{
+  \whereIncludeFile{\input{text/Pages_gnl/introduction.tex}}{beginning}{beginning}{\inclureIntroduction}
+}
+
+\newcommand{\includeConclusion}{
+  \whereIncludeFile{\input{text/Pages_gnl/conclusion.tex}}{beginning}{beginning}{\inclureConclusion}
+}
+
+%
+% Afficher un argument si l'autre est non vide
+% Params :
+%     1 - Texte à afficher
+%     2 - Valeur de contrôle
+%
+%\newcommand{\printIfNotZero}[2]{
+%  \ifnum#2=0
+%  \else
+%  #1
+%  \fi
+%}
+\newcommand{\printIfNotZero}[2]{%
+  \ifthenelse{#2=0}{}{#1}%
+}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../Template"
+%%% End:

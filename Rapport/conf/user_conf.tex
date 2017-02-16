@@ -1,0 +1,98 @@
+%%---------------------------------------------------------------%%
+%                                                                 %
+%   Fichier de toutes les configurations basiques utilisateurs    %
+%                                                                 %
+%%---------------------------------------------------------------%%
+
+%
+% 1 - Positionnement des TOC - LOF - LOT dans le document
+%
+\newcommand\whereTOC{beginning}          % Parmis beginning - end
+\newcommand\whereLOF{beginning}                % Parmis beginning - end
+\newcommand\whereLOT{beginning}                % Parmis beginning - end
+\newcommand\TOCLOFTNumStyle{Roman}       % Parmis Roman - roman - Arabic - arabic
+\newcommand\LOFLOTSeparator{\vfill}      % Séparateur après une LOF ou LOT
+\newcommand\TOCSeparator{\newpage}       % Séparateur après un TOC
+\newcommand\inclureTOC{true}             % Mettre la TOC (true) ou pas (false)
+\newcommand\inclureLOF{false}            % Mettre la LOF (true) ou pas (false)
+\newcommand\inclureLOT{false}            % Mettre la LOT (true) ou pas (false)
+
+%
+% 2 - Fichiers à inclure
+%
+\newcommand\inclureIntroduction{true}   % Mettre l'introduction (true) ou pas (false)    -> Position imposée
+\newcommand\inclureConclusion{true}     % Mettre la conclusion (true) ou pas (false)     -> Position imposée
+\newcommand\inclureRemerciements{false}  % Mettre les remerciements (true) ou pas (false)
+\newcommand\inclureResume{false}         % Mettre le résumé (true) ou pas (false)
+\newcommand\inclureAbstract{false}       % Mettre le résumé anglais (true) ou pas (false)
+\newcommand\inclureReferences{false}     % Mettre les références (true) ou pas (false)
+\newcommand\whereResume{beginning}       % Parmis beginning - end
+\newcommand\whereRemerciements{beginning}% Parmis beginning - end
+\newcommand\whereReferences{end}         % Parmis beginning - end
+
+%
+% 3 - Informations pour en-têtes et pieds de page
+%
+\newcommand\footerRight{\textbf{30 mars 2017}}                    % À gauche séparation du footer
+\newcommand\footerLeft{\textbf{\thepage}}                          % À droite séparation du footer
+\newcommand\headerText{\textbf{Deep Learning, traitement du langage naturel et text mining}}   % Texte de l'en-tête
+\newcommand\headerLogo{logo}                                       % Logo de l'en-tête (optionnel)
+
+%
+% 4 - Page de titre à charger
+%
+\newcommand\titlePage{picture}                                     % Voir les noms dans conf/Pages_titre/
+
+%
+% 5 - Le type de sections désiré
+%
+
+% 5.1 - Aspect d'une partie
+\newcommand\partFormat{page}
+\newcommand\partModele{default}
+% 5.2 - Aspect d'une section
+\newcommand\sectionFormat{default}
+\newcommand\sectionNumber{arabic}
+\newcommand\sectionNumberStyle{textbfc}
+\newcommand\sectionSeparator{~~$\bullet$~~}
+\newcommand\sectionSeparatorStyle{thColor}
+\newcommand\sectionTextStyle{textbfc}
+% 5.3 - Aspect d'une sous-section
+\newcommand\subsectionFormat{light}
+\newcommand\subsectionNumber{arabic}
+\newcommand\subsectionNumberStyle{textbfc}
+\newcommand\subsectionSeparator{.~~}
+\newcommand\subsectionSeparatorStyle{textbfc}
+\newcommand\subsectionTextStyle{textbfc}
+% 5.4 - Aspect d'une sous-sous-section
+\newcommand\subsubsectionFormat{default}
+\newcommand\subsubsectionNumber{arabic}
+\newcommand\subsubsectionNumberStyle{thColor}
+\newcommand\subsubsectionSeparator{.~~}
+\newcommand\subsubsectionSeparatorStyle{thColor}
+\newcommand\subsubsectionTextStyle{textic}
+% 5.5 - Aspect d'un paragraphe
+\newcommand\paragrapheFormat{default}
+\newcommand\paragrapheNumber{none}        % Pas de numérotation (none), autrement {Roman ; roman ; arabic ; Arabic}
+\newcommand\paragrapheNumberStyle{}
+\newcommand\paragrapheSeparator{}
+\newcommand\paragrapheSeparatorStyle{}
+\newcommand\paragrapheTextStyle{}
+% 5.6 - Aspect d'un sous-paragraphe
+\newcommand\subparagrapheFormat{default}
+\newcommand\subparagrapheNumber{none}     % Pas de numérotation (none), autrement {Roman ; roman ; arabic ; Arabic}
+\newcommand\subparagrapheNumberStyle{}
+\newcommand\subparagrapheSeparator{}
+\newcommand\subparagrapheSeparatorStyle{}
+\newcommand\subparagrapheTextStyle{textic}
+% 5.7 - Aspect de la page d'annexe
+\newcommand\annexeModele{default}         % Aucune (none) ou voir dans conf/Pages_annexes/
+
+%
+% 6 - Pour les sections avec images, configuration des images
+%
+\newcommand\imageSectionI{default1}
+\newcommand\imageSectionII{default2}
+\newcommand\imageSectionIII{default3}
+\newcommand\imageSectionIV{default4}
+\newcommand\imageSectionV{default5}

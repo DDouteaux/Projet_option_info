@@ -1,0 +1,86 @@
+\newgeometry{left=0cm,right=0cm,top=0cm,bottom=0cm}
+\noindent\begin{tikzpicture}[remember picture, overlay]
+  \path [fill tile image*={width=21.4cm}{images/PageTitre/\photoHaut}]
+      (0,-9.442) .. controls(5.5,-1.942)  and (15.5,-0.942)  .. (21,0.4)     -- (21,0.4)   -- (0,0.4)   --cycle;
+  \path [fill tile image*={height=10cm}{images/PageTitre/\photoBas}]
+      (0,-29.3)  .. controls(5.5,-27.958) and (15.5,-26.958) .. (21,-19.458) -- (21,-29.3) -- (0,-29.3) --cycle;
+\end{tikzpicture}
+\null
+\vfill
+\begin{center}
+\noindent\begin{tikzpicture}[
+  voidNode/.style={outer sep=0, inner sep=0},
+  matxNode/.style={outer sep=1mm},
+  matxTitleNode/.style={outer sep=5mm, minimum width=.7\textwidth}
+  ]
+  \node (organisme) [font=\fontsize{16}{1}\bf\selectfont] at (0,6) {\organisme};
+  \node (theme) [font=\fontsize{14}{1}\bf\selectfont] at ([yshift=-0.5cm]organisme.south){\textsc{\sujet}};
+  \matrix (titre) [column sep=1mm, font=\fontsize{25}{1}\bf\selectfont] at ([yshift=-2.2cm]theme.south) {
+    \node[matxTitleNode] {\hspace*{.2cm}\titreI\hspace*{.2cm}};\\
+    \ifthenelse{\equal{\titreII}{}}{\node[voidNode]}{\node[matxTitleNode] {\hspace*{.2cm}\titreII\hspace*{.2cm}};\\}
+  };
+  \ifthenelse{\equal{\blocIIITitle}{}}
+  {
+    \node (infoHautCentre) [voidNode, minimum width=.7\textwidth] at (titre.south) {};
+  }{
+    \matrix (infoHautCentre) [draw, column sep=2mm, below, font=\fontsize{14}{1}\selectfont, minimum width=.7\textwidth] at ([xshift=0cm, yshift=-.7cm]titre.south){
+      \ifthenelse{\equal{\blocIIITitle}{}}{[voidNode]}{\node[matxNode] {\thColor{\textit{\blocIIITitle}}};\\}
+      \ifthenelse{\equal{\blocIIIContributeurI}{}}{\node[voidNode]{};\\}{\node[matxNode] {\blocIIIContributeurI};\\}
+      \ifthenelse{\equal{\blocIIIContributeurII}{}}{\node[voidNode]{};\\}{\node[matxNode] {\blocIIIContributeurII};\\}
+      \ifthenelse{\equal{\blocIIIContributeurIII}{}}{\node[voidNode]{};\\}{\node[matxNode] {\blocIIIContributeurIII};\\}
+      \ifthenelse{\equal{\blocIIIContributeurIV}{}}{\node[voidNode]{};\\}{\node[matxNode] {\blocIIIContributeurIV};\\}
+      \ifthenelse{\equal{\blocIIIContributeurV}{}}{\node[voidNode]{};\\}{\node[matxNode] {\blocIIIContributeurV};\\}
+      \ifthenelse{\equal{\blocIIIContributeurVI}{}}{\node[voidNode]{};\\}{\node[matxNode] {\blocIIIContributeurVI};\\}
+    };
+  }
+  \matrix (infoGauche) [column sep=2mm, below right, font=\fontsize{14}{1}\selectfont] at ([xshift=0cm, yshift=-.7cm]infoHautCentre.south west){
+    \ifthenelse{\equal{\auteurTitle}{}}{[voidNode]}{\node[matxNode] {\thColor{\textit{\auteurTitle}}};\\}
+    \ifthenelse{\equal{\auteurI}{}}{}{\node[matxNode] {\auteurI};\\}
+    \ifthenelse{\equal{\auteurII}{}}{}{\node[matxNode] {\auteurII};\\}
+    \ifthenelse{\equal{\auteurIII}{}}{}{\node[matxNode] {\auteurIII};\\}
+    \ifthenelse{\equal{\auteurIV}{}}{}{\node[matxNode] {\auteurIV};\\}
+    \ifthenelse{\equal{\auteurV}{}}{}{\node[matxNode] {\auteurV};\\}
+    \ifthenelse{\equal{\auteurVI}{}}{}{\node[matxNode] {\auteurVI};\\}
+    \node{};\\
+    \node{};\\
+    \ifthenelse{\equal{\blocIITitle}{}}{\node[voidNode]{};\\}{\node[matxNode] {\thColor{\textit{\blocIITitle}}};\\}
+    \ifthenelse{\equal{\blocIIContributeurI}{}}{\node[voidNode]{};\\}{\node[matxNode] {\blocIIContributeurI};\\}
+    \ifthenelse{\equal{\blocIIContributeurII}{}}{\node[voidNode]{};\\}{\node[matxNode] {\blocIIContributeurII};\\}
+    \ifthenelse{\equal{\blocIIContributeurIII}{}}{\node[voidNode]{};\\}{\node[matxNode] {\blocIIContributeurIII};\\}
+    \ifthenelse{\equal{\blocIIContributeurIV}{}}{\node[voidNode]{};\\}{\node[matxNode] {\blocIIContributeurIV};\\}
+    \ifthenelse{\equal{\blocIIContributeurV}{}}{\node[voidNode]{};\\}{\node[matxNode] {\blocIIContributeurV};\\}
+    \ifthenelse{\equal{\blocIIContributeurVI}{}}{\node[voidNode]{};\\}{\node[matxNode] {\blocIIContributeurVI};\\}
+  };
+  \matrix (infoDroite) [column sep=2mm, below left, anchor=north east, font=\fontsize{14}{1}\selectfont] at ([xshift=0cm, yshift=-.7cm]infoHautCentre.south east){
+    \ifthenelse{\equal{\blocITitle}{}}{[voidNode]}{\node[matxNode] {\thColor{\textit{\blocITitle}}};\\}
+    \ifthenelse{\equal{\blocIContributeurI}{}}{\node[voidNode]{};\\}{\node[matxNode] {\blocIContributeurI};\\}
+    \ifthenelse{\equal{\blocIContributeurII}{}}{\node[voidNode]{};\\}{\node[matxNode] {\blocIContributeurII};\\}
+    \ifthenelse{\equal{\blocIContributeurIII}{}}{\node[voidNode]{};\\}{\node[matxNode] {\blocIContributeurIII};\\}
+    \ifthenelse{\equal{\blocIContributeurIV}{}}{\node[voidNode]{};\\}{\node[matxNode] {\blocIContributeurIV};\\}
+    \ifthenelse{\equal{\blocIContributeurV}{}}{\node[voidNode]{};\\}{\node[matxNode] {\blocIContributeurV};\\}
+    \ifthenelse{\equal{\blocIContributeurVI}{}}{\node[voidNode]{};\\}{\node[matxNode] {\blocIContributeurVI};\\}
+  };
+  \ifthenelse{\equal{\blocIVTitle}{}}
+  {}{
+    \path let \p1=(titre), \p2=(infoDroite.south), \p3=(infoGauche.south) in node[voidNode] (infoBasPosition) at (\x1,\getmin{\y2}{\y3}) {};
+    \matrix (infoBasCentre) [column sep=2mm, below, font=\fontsize{14}{1}\selectfont, minimum width=.7\textwidth] at ([yshift=-.5cm]infoBasPosition.south){
+      \ifthenelse{\equal{\blocIVTitle}{}}{[voidNode]}{\node[matxNode] {\thColor{\textit{\blocIVTitle}}};\\}
+      \ifthenelse{\equal{\blocIVContributeurI}{}}{\node[voidNode]{};\\}{\node[matxNode] {\blocIVContributeurI};\\}
+      \ifthenelse{\equal{\blocIVContributeurII}{}}{\node[voidNode]{};\\}{\node[matxNode] {\blocIVContributeurII};\\}
+      \ifthenelse{\equal{\blocIVContributeurIII}{}}{\node[voidNode]{};\\}{\node[matxNode] {\blocIVContributeurIII};\\}
+      \ifthenelse{\equal{\blocIVContributeurIV}{}}{\node[voidNode]{};\\}{\node[matxNode] {\blocIVContributeurIV};\\}
+      \ifthenelse{\equal{\blocIVContributeurV}{}}{\node[voidNode]{};\\}{\node[matxNode] {\blocIVContributeurV};\\}
+      \ifthenelse{\equal{\blocIVContributeurVI}{}}{\node[voidNode]{};\\}{\node[matxNode] {\blocIVContributeurVI};\\}
+    };
+  }
+  \draw [color=themeColor, fill=themeColor] ([yshift=.2cm]titre.north west) rectangle ([yshift=.3cm]titre.north east);
+  \draw [color=themeColor, fill=themeColor] ([yshift=-0.1cm]titre.south west) rectangle ([yshift=-0.2cm]titre.south east);
+\end{tikzpicture}
+\end{center}
+\vfill
+\restoregeometry
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../../Template"
+%%% End:

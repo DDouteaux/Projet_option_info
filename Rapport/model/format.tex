@@ -1,0 +1,61 @@
+%
+% Applique un formatage sur le texte fourni
+% Params :
+%     1 - Le format demandé
+%     2 - Le texte à mettre en forme
+%
+\makeatletter
+\newcommand{\applyFormat}[2]{%
+  \ifnum\pdf@strcmp{#1}{textbi}=0%
+  \textbi{#2}%
+  \else\ifnum\pdf@strcmp{#1}{textbf}=0%
+  \textbf{#2}%
+  \else\ifnum\pdf@strcmp{#1}{textit}=0%
+  \textit{#2}%
+  \else\ifnum\pdf@strcmp{#1}{textsc}=0%
+  \textsc{#2}%
+  \else\ifnum\pdf@strcmp{#1}{textbic}=0%
+  \textbic{#2}%
+  \else\ifnum\pdf@strcmp{#1}{textbfc}=0%
+  \textbfc{#2}%
+  \else\ifnum\pdf@strcmp{#1}{textic}=0%
+  \textic{#2}%
+  \else\ifnum\pdf@strcmp{#1}{textscic}=0%
+  \textbic{#2}%
+  \else\ifnum\pdf@strcmp{#1}{textscc}=0%
+  \textscc{#2}%
+  \else\ifnum\pdf@strcmp{#1}{thColor}=0%
+  \thColor{#2}%
+  \fi\fi\fi\fi\fi\fi\fi\fi\fi\fi%
+}
+\makeatother
+
+\newcommand\textbi[1]{%
+  \textbf{\textit{#1}}%
+}
+
+\newcommand\textbic[1]{%
+  \textbf{\textit{\thColor{#1}}}%
+}
+
+\newcommand\textbfc[1]{%
+  \textbf{\thColor{#1}}%
+}
+
+\newcommand\textscic[1]{%
+  \textsc{\textit{\thColor{#1}}}%
+}
+
+\newcommand\textscc[1]{%
+  \textsc{\thColor{#1}}%
+}
+
+\newcommand\textic[1]{%
+  \textit{\thColor{#1}}%
+}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../Template"
+%%% End:

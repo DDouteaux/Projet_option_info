@@ -1,0 +1,58 @@
+% Some pre-defined TikZstyles
+\tikzset{
+	sectionleft/.style={text height=1.5ex,text depth=0ex,color=\headersColor},
+	drawrect/.style={draw, rectangle, fill=#1},
+	footers/.style={draw, rectangle, minimum width=21cm, minimum height = 0.5cm, color=#1, fill=#1},
+	headers/.style={draw, rectangle, minimum width=21cm, minimum height = 0.5cm, color=#1, fill=#1},
+	headers/.default=\headersColor,
+	footers/.default=\headersColor,
+	drawrect/.default=\headersColor,
+    rectangle with rounded corners north west/.initial=4pt,
+    rectangle with rounded corners south west/.initial=4pt,
+    rectangle with rounded corners north east/.initial=4pt,
+    rectangle with rounded corners south east/.initial=4pt
+}
+
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{foreground}
+\pgfsetlayers{background,main,foreground}
+
+\makeatletter
+\pgfdeclareshape{rectangle with rounded corners}{
+  \inheritsavedanchors[from=rectangle] % this is nearly a rectangle
+  \inheritanchorborder[from=rectangle]
+  \inheritanchor[from=rectangle]{center}
+  \inheritanchor[from=rectangle]{north}
+  \inheritanchor[from=rectangle]{south}
+  \inheritanchor[from=rectangle]{west}
+  \inheritanchor[from=rectangle]{east}
+  \inheritanchor[from=rectangle]{north east}
+  \inheritanchor[from=rectangle]{south east}
+  \inheritanchor[from=rectangle]{north west}
+  \inheritanchor[from=rectangle]{south west}
+  \backgroundpath{% this is new
+    % store lower right in xa/ya and upper right in xb/yb
+    \southwest \pgf@xa=\pgf@x \pgf@ya=\pgf@y
+    \northeast \pgf@xb=\pgf@x \pgf@yb=\pgf@y
+    % construct main path
+    \pgfkeysgetvalue{/tikz/rectangle with rounded corners north west}{\pgf@rectc}
+    \pgfsetcornersarced{\pgfpoint{\pgf@rectc}{\pgf@rectc}}
+    \pgfpathmoveto{\pgfpoint{\pgf@xa}{\pgf@ya}}
+    \pgfpathlineto{\pgfpoint{\pgf@xa}{\pgf@yb}}
+    \pgfkeysgetvalue{/tikz/rectangle with rounded corners north east}{\pgf@rectc}
+    \pgfsetcornersarced{\pgfpoint{\pgf@rectc}{\pgf@rectc}}
+    \pgfpathlineto{\pgfpoint{\pgf@xb}{\pgf@yb}}
+    \pgfkeysgetvalue{/tikz/rectangle with rounded corners south east}{\pgf@rectc}
+    \pgfsetcornersarced{\pgfpoint{\pgf@rectc}{\pgf@rectc}}
+    \pgfpathlineto{\pgfpoint{\pgf@xb}{\pgf@ya}}
+    \pgfkeysgetvalue{/tikz/rectangle with rounded corners south west}{\pgf@rectc}
+    \pgfsetcornersarced{\pgfpoint{\pgf@rectc}{\pgf@rectc}}
+    \pgfpathclose
+ }
+}
+\makeatother
+
+%%% Local Variables:
+%%% mode: plain-tex
+%%% TeX-master: "../Master"
+%%% End:

@@ -1,0 +1,49 @@
+%%  boxing (general code)
+\newcommand\generalencadrement[5]{\renewcommand{\currentColor}{#3}\vspace{0.3cm}\noindent\tikz{[line width=1]
+\node (contentnode) [draw, color=#3, fill=#4, text=black, rectangle, inner sep = 15, outer sep = 0, rounded corners = 2mm, minimum width=\linewidth-1, text width=\linewidth-31,align=justify, right] at (0,0) {\newline #2};
+\node [draw,rectangle,inner sep = 3,outer sep = 3,rounded corners = 1mm, fill opacity=1, above, color=#3, fill=#5, text =black, right]  at ([xshift=15]contentnode.north west) {\hspace{0.1cm}#1 \hspace{0.1cm}};
+}\par\vspace{0.3cm}\renewcommand{\currentColor}{themeColor}}
+
+\newcommand\customgeneralencadrement[5]{\vspace{.15cm}\begin{tcolorbox}[breakable, title={#1}, attach boxed title to top left= {xshift=10mm,yshift=-3mm}, boxed title style={boxrule=.8pt}, colframe=#3, colback=#5, coltitle=black, colbacktitle=#4, boxrule=.8pt]
+\vspace{.3cm}
+#2
+\end{tcolorbox}}
+
+%% Several types of useful boxes (using previous source code)
+\newcommand\remarqueencadr[1]{\par\generalencadrement{ Remark }{ #1 }{vertforet}{white}{white}}
+\newcommand\attentionencadr[1]{\par\generalencadrement{ Beware }{ #1 }{bordeau}{white}{white}}
+\newcommand\informationencadr[1]{\par\generalencadrement{ Information }{ #1 }{orange}{white}{white}}
+\newcommand\paragrapheencadr[2]{\par\generalencadrement{ #1 }{ #2 }{themeColor}{white}{white}}
+
+\newcommand\remarqueencadrfond[1]{\par\generalencadrement{ Remark }{ #1 }{vertforet}{vertforet!50}{white}}
+\newcommand\attentionencadrfond[1]{\par\generalencadrement{ Beware }{ #1 }{bordeau}{bordeau!50}{white}}
+\newcommand\informationencadrfond[1]{\par\generalencadrement{ Information }{ #1 }{orange}{orange!50}{white}}
+\newcommand\paragrapheencadrfond[2]{\par\generalencadrement{ #1 }{ #2 }{themeColor}{themeColor!50}{white}}
+
+\newcommand\remarqueencadrfondd[1]{\par\generalencadrement{ Remark }{ #1 }{vertforet}{vertforet!5}{vertforet!50}}
+\newcommand\attentionencadrfondd[1]{\par\generalencadrement{ Beware }{ #1 }{bordeau}{bordeau!5}{bordeau!50}}
+\newcommand\informationencadrfondd[1]{\par\generalencadrement{ Information }{ #1 }{orange}{orange!5}{orange!50}}
+\newcommand\paragrapheencadrfondd[2]{\par\generalencadrement{ #1 }{ #2 }{themeColor}{themeColor!5}{themeColor!50}}
+
+\newcommand\mathdefinition[2]{\par\generalencadrement{ Definition --- #1 }{ #2 }{bluenight}{white}{white}}
+\newcommand\mathdefinitionvoid[1]{\par\generalencadrement{ Definition }{ #1 }{bluenight}{white}{white}}
+\newcommand\maththeoreme[2]{\par\generalencadrement{ Theorem --- #1 }{ #2 }{vertforet}{white}{white}}
+\newcommand\maththeoremevoid[1]{\par\generalencadrement{ Theorem }{ #1 }{vertforet}{white}{white}}
+\newcommand\mathpropriete[2]{\par\generalencadrement{ Propriety --- #1 }{ #2 }{orange}{white}{white}}
+\newcommand\mathproprietevoid[1]{\par\generalencadrement{ Propriété }{ #1 }{orange}{white}{white}}
+\newcommand\mathcasparticulier[2]{\par\generalencadrement{ Particular case --- #1 }{ #2 }{violet}{white}{white}}
+\newcommand\mathcasparticuliervoid[1]{\par\generalencadrement{ Particular case }{ #1 }{violet}{white}{white}}
+\newcommand\mathmethode[2]{\par\generalencadrement{ Method --- #1 }{ #2 }{bordeau}{white}{white}}
+\newcommand\mathexercice[2]{\par\generalencadrement{ Exercise #1 }{ #2 }{bluenight}{white}{white}}
+\newcommand\mathenonce[1]{\par\generalencadrement{ Problem statement }{ #1 }{bluenight}{white}{white}}
+\newcommand\mathproposition[2]{\par\generalencadrement{ Proposition --- #1 }{ #2 }{orange}{white}{white}}
+\newcommand\mathpropositionvoid[1]{\par\generalencadrement{ Proposition }{ #1 }{orange}{white}{white}}
+
+%% Boxes to enhanced results
+\newcommand{\result}[1]{\tresult{$\displaystyle{#1}$}}
+\newcommand{\tresult}[1]{\colorbox{themeColor!30}{#1}}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../Master"
+%%% End:

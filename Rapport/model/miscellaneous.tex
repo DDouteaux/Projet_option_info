@@ -1,0 +1,120 @@
+\newcommand{\printheaderLeft}{\tikz{%
+    \node (header_logo) [text depth=0] at (0,0) {\includegraphics[height=0.55cm]{images/Logo/\headerLogo}};%
+    \node (header_text) [right, text depth=0] at ([xshift=1cm]header_logo.east) {\headColor{\headerText}};%
+    \fill [\headersColor] ([xshift=.45cm]header_logo.south east) rectangle ([xshift=-.45cm]header_text.north west);%
+  }
+}
+
+\newcommand{\printheaderRight}{\tikz{%
+    \node (header_text) [text depth=0] at (0,0) {\headColor{\headerText}};%
+    \node (header_logo) [right, text depth=0] at ([xshift=1cm]header_text.east) {\includegraphics[height=0.55cm]{images/Logo/\headerLogo}};%
+    \fill [\headersColor] ([xshift=.45cm]header_text.south east) rectangle ([xshift=-.45cm]header_logo.north west);%
+  }
+}
+
+\newcommand{\printfooterRight}{\tikz{%
+    \node (footer_text) [text depth=0] at (0,0) {\headColor{\footerLeft}};%
+    \node (footer_nb_page) [right, text depth=0] at ([xshift=1cm]footer_text.east) {\headColor{\footerRight}};%
+    \fill [\headersColor] ([xshift=.45cm]footer_text.south east) rectangle ([xshift=-.45cm]footer_nb_page.north west);%
+  }
+}
+
+\newcommand{\printfooterLeft}{\tikz{%
+    \node (footer_nb_page) [text depth=0] at (0,0) {\headColor{\footerRight}};%
+    \node (footer_text) [right, text depth=0] at ([xshift=1cm]footer_nb_page.east) {\headColor{\footerLeft}};%
+    \fill [\headersColor] ([xshift=.45cm]footer_nb_page.south east) rectangle ([xshift=-.45cm]footer_text.north west);%
+  }
+}
+
+\makeatletter
+\def\ps@mystyle{%
+  % Le pied de page des pages du document
+  \def\@oddfoot{%
+    \ifodd\value{page}\relax%
+    \printfooterLeft\hfill
+    \else
+    \hfill\printfooterRight
+    \fi
+  }
+  % L'en-tête des pages du document
+  \def\@oddhead{%
+    \ifodd\value{page}\relax
+    \printheaderLeft\hfill
+    \else
+    \hfill\printheaderRight
+    \fi%
+  }%
+  \let\@mkboth\markboth}
+\makeatother
+\pagestyle{mystyle}
+% \tocloftpagestyle{mystyle}
+
+%% Configurations de base pour les liens hyperref
+\hypersetup{hidelinks,
+		pdfauthor={Damien Douteaux},
+	        pdftitle={Projet de recherche et développement},
+		pdfkeywords={Centrale Lyon, IRD, Projet}}
+
+%% Change margins environment
+\def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
+\let\endchangemargin=\endlist
+
+%% Sections needing completion ands type of completions expected
+\newcommand{\needCompletion}[1]{\newline\textcolor{purple}{\textit{#1}}\newline}
+
+%% Emphasing elements in a table
+\newcommand{\emphasizeTab}{\textcolor{bordeau}{\up{$\circledast$}}}
+
+%% Glossary entry
+\newcommand{\itemGlossaire}[3]{\par\textcolor{themeColor}{\textbf{#1}}\label{#2}\hspace{0.7cm}{#3}\vspace{0.2cm}}
+\newcommand{\itemAcro}[4]{\par\textcolor{themeColor}{\textbf{#1} (#2)}\label{#3}\hspace{0.7cm}{#4}\vspace{0.2cm}}
+
+%% Other unused commands
+\newcommand\roundboxwithline[2]{\noindent\tikz{[line width=1]
+\coordinate (leftshift) at (0,0);
+\node (sectionname) [draw,rectangle,inner sep = 5,outer sep = 0,rounded corners = 1mm,font=\fontsize{#1}{1}\it\selectfont,color=themeColor,text opacity = 1,right] at (1,0) {#2};
+\draw [color=themeColor] (leftshift) -- (sectionname.west);
+\draw [color=themeColor] (sectionname.east) -- (\linewidth-1,0);}}
+
+%% Table interline value
+\renewcommand*\arraystretch{1.5}
+
+%% Don't forget me mark
+\newcommand\beware{\up{\textcolor{bordeau}{(!)}}}
+
+%% Rectif indices
+\newcommand{\rectif}{\hspace{0.05cm}}
+
+%% Special include when newpage is needed
+\newcommand{\inputn}[1]{\newpage\input{#1}}
+
+%% Mise en avant de résultats intermédiaires
+\newcommand{\iResult}[2]{\iiResult{Intermediate outcome :}{#1}{passengers/#2}{!25}}
+\newcommand{\itResult}[2]{\iiResult{Intermediate outcome :}{#1}{trips/#2}{!25}}
+
+\newcommand{\isResult}[3]{\newline\vskip\hspace*{\fill}\large{\textcolor{themeColor}{#1} $#2$ #3}\hspace*{\fill}\newline}
+
+\newcommand{\iiResult}[4]{\newline\vskip\noindent\hspace*{\fill}\colorbox{themeColor}{\rule{0cm}{1cm}\hspace{.07cm}}\colorbox{themeColor#4}{\hspace{.1cm}\rule{0cm}{1cm}\raisebox{.3cm}{\large{\textcolor{themeColor}{#1} $#2$ #3\hspace{.1cm}}}}\hspace*{\fill}}
+
+\newcommand{\qpays}{$\mathcal{Q}_\textnormal{pays}$}
+\newcommand{\qvolprod}{$\mathcal{Q}_\textnormal{volume production}$}
+\newcommand{\qprofil}{$\mathcal{Q}_\textnormal{profil}$}
+\newcommand{\qinteret}{$\mathcal{Q}_\textnormal{aspect important}$}
+\newcommand{\qpayback}{$\mathcal{Q}_\textnormal{payback}$}
+\newcommand{\qbudget}{$\mathcal{Q}_\textnormal{budget}$}
+\newcommand{\qagriculture}{$\mathcal{Q}_\textnormal{agriculture}$}
+
+\setlength{\multicolsep}{6.0pt plus 2.0pt minus 1.5pt}
+
+
+\newcommand{\getmin}[2]{
+  \ifdim#1pt>#2pt%
+  #1%
+  \else%
+  #2%
+  \fi%
+}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../TemplateV2"
+%%% End:

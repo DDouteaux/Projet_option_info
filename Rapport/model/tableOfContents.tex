@@ -1,0 +1,60 @@
+%% Rededefining table of contents
+\addto\captionsfrench{ % French stands for the used language
+  \renewcommand{\contentsname}{Table des matières}%
+  \renewcommand{\listfigurename}{Liste des figures}%
+  \renewcommand{\listtablename}{Liste des tables}%
+}
+
+\makeatletter
+%% Style des sections dans la TOC
+\titlecontents{section}
+[0em]
+{\vspace{.25cm}\color{themeColor}\Large}
+{\rule[-2pt]{.2cm}{\f@size pt}~~\contentslabel{}\quad\raisebox{1pt}{$\bullet$}\enspace}
+{\rule[-2pt]{.2cm}{\f@size pt}~~}
+{\titlerule*[0.7em]{.}\rmfamily\upshape\contentspage}
+[]
+
+%% Style des sous-sections dans la TOC
+\titlecontents{subsection}
+[2em]
+{}
+{\hspace*{4em}\thColor{\contentslabel{2em}}}
+{}
+{\titlerule*[0.7em]{.}\rmfamily\upshape\contentspage}
+[]
+
+%% Style des sous-sections dans la TOC
+\titlecontents{subsubsection}
+[4em]
+{}
+{\hspace*{6em}\thColor{\contentslabel{3em}}}
+{}
+{\titlerule*[0.7em]{.}\rmfamily\upshape\contentspage}
+[]
+
+
+%% Styles des sous-sections dans la mini-TOC
+\titlecontents{psubsection}
+[0em] % distance from left margin
+{\Large} % above (global formatting of entry)
+{\hspace*{2em}\thColor{\contentslabel{2em}}} % before w/label (label = ``2.6'')
+{} % before w/o label
+{\titlerule*[0.7em]{.}\rmfamily\upshape\contentspage} % filler + page (leaders and page num)
+[] % after
+\makeatother
+
+%% Intermidiate table of contents
+\newcommand\PartialToC{
+  \begin{adjustwidth}{2cm}{2cm}
+    \startcontents[sections]%
+    \noindent\begin{mdframed}[backgroundcolor=white, hidealllines=true]
+      \printcontents[sections]{p}{1}{}
+    \end{mdframed}
+  \end{adjustwidth}
+}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../Rapport_dreches"
+%%% End:

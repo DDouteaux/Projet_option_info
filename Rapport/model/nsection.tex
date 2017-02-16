@@ -1,0 +1,18 @@
+%
+% Application du style de la section.
+% Params :
+%    1 - Le format de la section
+%    2 - Le label de la section
+%
+\makeatletter
+\newcommand{\applySectionFormat}[2]{
+  \ifnum\pdf@strcmp{#1}{withImage}=0
+  \sectionWithImage{#2}{}
+  \else\ifnum\pdf@strcmp{#1}{default}=0
+  \sectionDefault{#2}{}
+}
+\makeatother
+
+\titleformat{name = \section, numberless}
+{\normalfont}{}{0em}
+{\mynsection{#1}}[\addvspace{0ex}]

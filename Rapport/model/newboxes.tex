@@ -1,0 +1,103 @@
+% Pour avoir des résultats prédictibles, améliore le calcul des découpes des boîtes.
+\pgfmathsetseed{1}
+
+% Affichage du texte quand une coupure n'est pas à faire, ie. il tient entièrement dans la page.
+\newcommand*\generalboxframe[5]{%
+  \tikz{%
+    \node[draw=#1, line width=1, rounded corners=2mm, inner sep = 15, outer sep = 0, fill=#2] (A) {\vspace{-2pt}#5};   % Texte
+    \node[draw, rectangle, outer sep=3, rounded corners=1mm, above, color=#1, fill=#4, text=black, right, line width=1, minimum height=6mm, overlay] at ([xshift=15]A.north west) {\hspace{.1cm}#3\hspace{.1cm}};%
+    }%
+}
+
+% Affichage du texte quand une coupure a lieu.
+% 1. Début de la boîte (titre + début du texte).
+\newcommand*\generalboxframetop[5]{%
+  \tikz{%
+        \node[inner sep = 15, outer sep = 0, fill=#2, shape = rectangle with rounded corners, rectangle with rounded corners south west=0pt, rectangle with rounded corners north west=2mm, rectangle with rounded corners south east=0pt, rectangle with rounded corners north east=2mm] (A) {#5};   % Texte
+        \draw[inner sep = 15, outer sep = 0, #1, line width=1, rounded corners=2mm] (A.south west) -- (A.north west) -- (A.north east) -- (A.south east);
+        \draw[inner sep = 15, outer sep = 0, #1, line width=.25] (A.south west) -- (A.south east);
+        \node[draw, rectangle,  outer sep=3, rounded corners=1mm, above, color=#1, fill=#4, text=black, right, line width=1, minimum height=6mm, overlay] at ([xshift=15]A.north west) {\hspace{.1cm}#3\hspace{.1cm}};
+    }%
+}
+
+% 2. Affichage de la fin du texte (arrondi de fin de boîte).
+\newcommand*\generalboxframebottom[3]{%
+  \tikz{%
+        \node[inner sep = 15, outer sep = 0, fill=#2] (A) {\vspace{-2pt}#3};   % Texte
+        \draw[inner sep = 15, outer sep = 0, #1, line width=1, rounded corners=2mm] (A.north west) -- (A.south west) -- (A.south east) -- (A.north east);
+        \draw[inner sep = 15, outer sep = 0, #1, line width=.25] (A.north west) -- (A.north east);
+  }%
+}
+
+% 3. Affichage quand le texte provient de la page précédente et continue encore sur la page suivante.
+\newcommand*\generalboxframemiddle[3]{%
+  \tikz{%
+        \node[inner sep = 15, outer sep = 0, fill=#2] (A) {\vspace{-2pt}#3};   % Texte
+        \draw[inner sep = 15, outer sep = 0, #1, line width=1] (A.north west) -- (A.south west);
+        \draw[inner sep = 15, outer sep = 0, #1, line width=1] (A.south east) -- (A.north east);
+        \draw[inner sep = 15, outer sep = 0, #1, line width=.25] (A.north west) -- (A.north east);
+        \draw[inner sep = 15, outer sep = 0, #1, line width=.25] (A.south west) -- (A.south east);
+  }%
+}
+
+% Définition de l'environnement qui créé la frame. L'environnement accepte cinq paramètres :
+%       1. Le titre de la boîte
+%       2. La couleur de l'encadrement de la boîte.
+%       3. La couleur de fond de la boîte.
+%       4. La couleur de fond de la boîte de titre.
+\newenvironment{generalbox}[4]{%
+        \renewcommand{\currentColor}{#2}%
+        \def\FrameCommand{\generalboxframe{#2}{#3}{#1}{#4}}%
+        \def\FirstFrameCommand{\generalboxframetop{#2}{#3}{#1}{#4}}%
+        \def\LastFrameCommand{\generalboxframebottom{#2}{#3}}%
+        \def\MidFrameCommand{\generalboxframemiddle{#2}{#3}}%
+        \vskip\baselineskip
+        \MakeFramed {\advance\hsize-\width\FrameRestore}%
+    } {%
+       \endMakeFramed%
+       \renewcommand{\currentColor}{themeColor}%
+    }
+
+%% Box avec fond de la boîte et du cartouche blancs d'usage général.
+\newcommand{\paragrapheencadr}[3]{\begin{generalbox}{ #1 }{#2}{white}{white}#3\end{generalbox}}
+\newcommand{\remarqueencadr}[1]{\paragrapheencadr{ Remarque }{vertforet}{#1}}
+\newcommand{\attentionencadr}[1]{\paragrapheencadr{ Attenton }{bordeau}{#1}}
+\newcommand{\informationencadr}[1]{\paragrapheencadr{ Information }{orange}{#1}}
+
+%% Box avec fond de la boîte en blanc et fond du cartouche de couleurs d'usage général.
+\newcommand{\paragrapheencadrfond}[3]{\begin{generalbox}{ #1 }{#2}{#2!50}{white}#3\end{generalbox}}
+\newcommand{\remarqueencadrfond}[1]{\paragrapheencadrfond{ Remarque }{vertforet}{#1}}
+\newcommand{\attentionencadrfond}[1]{\paragrapheencadrfond{ Attenton }{bordeau}{#1}}
+\newcommand{\informationencadrfond}[1]{\paragrapheencadrfond{ Information }{orange}{#1}}
+
+%% Box avec fond de la boîte et du cartouche en couleurs d'usage général.
+\newcommand{\paragrapheencadrfondd}[3]{\begin{generalbox}{ #1 }{#2}{#2!5}{#2!50}#3\end{generalbox}}
+\newcommand{\remarqueencadrfondd}[1]{\paragrapheencadrfond{ Remarque }{vertforet}{#1}}
+\newcommand{\attentionencadrfondd}[1]{\paragrapheencadrfond{ Attenton }{bordeau}{#1}}
+\newcommand{\informationencadrfondd}[1]{\paragrapheencadrfond{ Information }{orange}{#1}}
+
+%% Box avec fond de la boîte et du cartouche blancs, pour les mathématiques.
+\newcommand{\mathbox}[3]{\paragrapheencadr{#1}{#2}{#3}}
+\newcommand{\mathdefinition}[2]{\mathbox{ Définition --- #1 }{bluenight}{#2}}
+\newcommand{\maththeoreme}[2]{\mathbox{ Théorème --- #1 }{vertforet}{#2}}
+\newcommand{\maththeoremevoid}[1]{\mathbox{ Théorème }{vertforet}{#1}}
+\newcommand{\mathpropriete}[2]{\mathbox{ Propriété --- #1 }{orange}{#2}}
+\newcommand{\mathproprietevoid}[1]{\mathbox{ Propriété }{orange}{#1}}
+\newcommand{\mathproposition}[2]{\mathbox{ Proposition --- #1 }{orange}{#2}}
+\newcommand{\mathpropositionvoid}[1]{\mathbox{ Proposition }{orange}{#1}}
+\newcommand{\mathcorollaire}[2]{\mathbox{ Corollaire --- #1 }{violet}{#2}}
+\newcommand{\mathcorollairevoid}[1]{\mathbox{ Corollaire }{violet}{#1}}
+\newcommand{\mathcasparticulier}[2]{\mathbox{ Cas particulier --- #1 }{violet}{#2}}
+\newcommand{\mathcasparticuliervoid}[1]{\mathbox{ Cas particulier }{violet}{#1}}
+\newcommand{\mathmethode}[2]{\mathbox{ Méthode --- #1 }{bordeau}{#2}}
+\newcommand{\mathexercice}[2]{\mathbox{ Exercice #1 }{themeColor}{#2}}
+\newcommand{\mathenonce}[1]{\mathbox{ Énoncé }{themeColor}{#1}}
+
+%% Box pour mettre en avant les résultats.
+\newcommand{\result}[1]{\tresult{$\displaystyle{#1}$}}
+\newcommand{\tresult}[1]{\colorbox{themeColor!30}{#1}}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../Master"
+%%% End:

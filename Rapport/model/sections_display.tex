@@ -1,0 +1,69 @@
+%
+% Style de section [withImage]
+% Affichage avec une image et un cartouche contenant le numéro + label
+%
+\newcommand\sectionWithImage[2]{\noindent\vspace*{-2.9cm}\begin{changemargin}{-1.5cm}{1.5cm}%
+    \noindent\begin{tikzpicture}%
+      \pgfdeclarelayer{background}%
+      \pgfdeclarelayer{foreground}%
+      \pgfsetlayers{background,foreground}%
+      \begin{pgfonlayer}{foreground}%
+        \node (separator) [color=\currentColor, fill=\currentColor, draw, rectangle, minimum width=21cm, inner sep=1pt] at (-10.5,0) {};%
+        \node (section_name) [fill=white, font=\fontsize{25}{1}\selectfont, inner sep=.3cm, text depth=.35ex] at (separator.center) {\printIfNotZero{#1}{#1~~\raisebox{2pt}{$\bullet$}~~}\textbf{#2}\hspace*{.2cm}};%
+        \fill [white] ([xshift=-2pt]section_name.north east) -- (section_name.north east) -- ([xshift=.5cm]section_name.east) -- (section_name.south east) --([xshift=-2pt]section_name.south east) -- cycle ;%
+        \fill [white] ([xshift=2pt]section_name.north west) -- (section_name.north west) -- ([xshift=-.5cm]section_name.west) -- (section_name.south west)  --([xshift=2pt]section_name.south west) -- cycle ;%
+        \draw [color=\currentColor, line width=2pt] (section_name.north east) -- ([xshift=.5cm]section_name.east) -- (section_name.south east) -- (section_name.south west) -- ([xshift=-.5cm]section_name.west) -- (section_name.north west) -- cycle;%
+      \end{pgfonlayer}%
+      \begin{pgfonlayer}{background}%
+        \path [fill tile image*={width=21cm}{images/Section/\selectImageForSection{#1}}] (-21,10) rectangle (0,0);%
+      \end{pgfonlayer}%
+    \end{tikzpicture}%
+  \end{changemargin}
+}
+
+\newcommand\selectImageForSection[1]{%
+  \ifnum#1=1%
+  \imageSectionI%
+  \else\ifnum#1=2%
+  \imageSectionII%
+  \else\ifnum#1=3%
+  \imageSectionIII%
+  \else\ifnum#1=4%
+  \imageSectionIV%
+  \else\ifnum#1=5%
+  \imageSectionV%
+  \else%
+  \imageSectionI%
+  \fi\fi\fi\fi\fi%
+}
+
+%
+% Style de section [default]
+% Affichage simplifié avec nom souligné
+%
+\newcommand\sectionDefault[2]{%
+  \fontsize{15}{1}\selectfont\vspace{0.3cm}\noindent\tikz{%
+    \node (sec_number) [left] at (0,0) {\printIfNotZero{\applyFormat{\sectionNumberStyle}{#1}\applyFormat{\sectionSeparatorStyle}{\sectionSeparator}}{#1}\applyFormat{\sectionTextStyle}{\textbf{#2}}};%
+    \draw [color=\currentColor, line width=1pt] (sec_number.south west) -- ([xshift=\textwidth]sec_number.south west);%
+  }\vspace*{-.3cm}\par
+}
+
+%
+% Style de subsection [default]
+% Affichage simplifié avec nom souligné
+%
+\newcommand\subsectionDefault[2]{\fontsize{15}{1}\selectfont\vspace{0.3cm}\noindent\tikz{%
+    \node (sec_number) [left] at (0,0) {\applyFormat{\subsectionNumberStyle}{#1}};%
+    \node (sec_title) [right] at ([xshift=.15cm]sec_number.east) {\applyFormat{\subsectionTextStyle}{#2}};%
+    \fill [\currentColor] (sec_number.south east) rectangle (sec_title.north west);%
+    \draw [color=\currentColor, line width=1pt] (sec_number.south west) -- ([xshift=\textwidth]sec_number.south west);%
+  }\vspace*{-.3cm}\par
+}
+
+\newcommand\subsectionLight[2]{\fontsize{13}{1}\selectfont\vspace{.3cm}\noindent\applyFormat{\subsectionNumberStyle}{#1}\applyFormat{\subsectionSeparatorStyle}{\subsectionSeparator}\applyFormat{\subsectionTextStyle}{#2}\vspace*{-.3cm}\par}
+
+%
+% Style de subsubsection [default]
+% Affichage gras italique avec un peu de couleur
+%
+\newcommand\subsubsectionDefault[2]{\fontsize{11}{1}\selectfont\vspace{.15cm}\noindent\textbf{\applyFormat{\subsubsectionNumberStyle}{#1}\applyFormat{\subsubsectionSeparatorStyle}{\subsubsectionSeparator}\applyFormat{\subsubsectionTextStyle}{#2}}}

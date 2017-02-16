@@ -1,0 +1,125 @@
+\newcolumntype{o}{@{}>{{}}c<{{}}@{}}
+
+\newcommand{\coordplan}[2]{\left(\begin{aligned}#1\\#2\end{aligned}\right)}
+\newcommand{\coordesp}[3]{\left(\begin{aligned}#1\\#2\\#3\end{aligned}\right)}
+\newcommand{\expara}[1]{\newline\noindent\textbf{#1}\hspace{.4cm}}
+\newcommand{\condn}{\expara{Condition nécessaire}}
+\newcommand{\conds}{\expara{Condition suffisante}}
+\newcommand{\analyse}{\expara{Analyse}}
+\newcommand{\ranalyse}{\expara{Retour à l'analyse}}
+\newcommand{\synthese}{\expara{Synthèse}}
+\newcommand{\rsynthese}{\expara{Retour à la synthèse}}
+\newcommand{\conclusion}{\expara{Conclusion}}
+\newcommand{\oi}{$\displaystyle{\left(O;\overrightarrow{\imath}\right)}$}
+\newcommand{\oij}{$\displaystyle{\left(O;\overrightarrow{\imath},\overrightarrow{\jmath}\right)}$}
+\newcommand{\iij}{$\displaystyle{\left(I;\overrightarrow{\imath},\overrightarrow{\jmath}\right)}$}
+\newcommand{\oijk}{$\displaystyle{\left(O;\overrightarrow{\imath},\overrightarrow{\jmath},\overrightarrow{k}\right)}$}
+\newcommand{\glabel}[1]{\mathscr{#1}}
+\newcommand{\gplabel}[1]{(\glabel{#1})}
+\newcommand{\coordi}[1]{#1\overrightarrow{\imath}}
+\newcommand{\coordj}[1]{#1\overrightarrow{\jmath}}
+\newcommand{\coordk}[1]{#1\overrightarrow{k}}
+\newcommand{\coordp}[2]{\displaystyle{\left(#1;#2\right)}}
+\newcommand{\coorde}[3]{\displaystyle{\left(#1;#2;#3\right)}}
+\newcommand{\coordee}[3]{\displaystyle{#1\vect{\imath}+#2\vect{\jmath}+#3\vect{k}}}
+\newcommand{\suite}[3]{$\displaystyle{\left(#1_#2\right)_{#2\in\mathbb{#3}}}$}
+\newcommand{\suiteu}{$\displaystyle{\left(u_n\right)_{n\in\mathbb{N}}}$}
+\newcommand{\suitev}{$\displaystyle{\left(v_n\right)_{n\in\mathbb{N}}}$}
+\newcommand{\txvar}[2]{\displaystyle{\lim_{h\rightarrow0}\frac{#1(#2+h)-#1(#2)}{h}}}
+\newcommand{\llim}[3]{\displaystyle{\lim_{#1\rightarrow#2}#3}}
+\newcommand{\lllim}[4]{\displaystyle{\lim_{\substack{#1\rightarrow#2\\#3}}#4}}
+\newcommand{\ip}{+\infty}
+\newcommand{\im}{-\infty}
+\newcommand{\ipm}{\pm\infty}
+\newcommand{\vect}[1]{\overrightarrow{#1}}
+\newcommand{\trans}[1]{t_{\vect{#1}}}
+\newcommand{\homot}[2]{h_{#1,#2}}
+\newcommand{\aavect}[4]{\displaystyle{\left(#1\overrightarrow{#2},#3\overrightarrow{#4}\right)}}
+\newcommand{\vu}{$\vect{u}$}
+\newcommand{\vectu}{\vu}
+\newcommand{\vv}{$\vect{v}$}
+\newcommand{\vectv}{\vv}
+\newcommand{\vw}{$\vect{w}$}
+\newcommand{\vectw}{\vw}
+\newcommand{\avect}[2]{\aavect{}{#1}{}{#2}}
+\newcommand{\mathspace}[2]{\hspace{#1}\textnormal{#2}\hspace{#1}}
+\newcommand{\mathet}[1]{\mathspace{#1}{et}}
+\newcommand{\mathssi}[1]{\mathspace{#1}{ssi}}
+\newcommand{\mathalors}[1]{\mathspace{#1}{alors}}
+\newcommand{\mathavec}[1]{\mathspace{#1}{avec}}
+\newcommand{\mathie}[1]{\mathspace{#1}{ie}}
+\newcommand{\mathou}[1]{\mathspace{#1}{ou}}
+\newcommand{\mathdonc}[1]{\mathspace{#1}{donc}}
+\newcommand{\mathequiv}[1]{\mathspace{#1}{$\Longleftrightarrow$}}
+\newcommand{\mathequivsub}[2]{\mathspace{#1}{$\underset{#2}{\Longleftrightarrow}$}}
+\newcommand{\eqnlabel}[1]{\mathcal{#1}}
+\newcommand{\eqn}[1]{(\eqnlabel{#1})}
+\newcommand{\eqnp}[2]{(\eqnlabel{#1}_{#2})}
+\newcommand{\eqnsol}[2]{\eqnlabel{#1}_{#2}}
+\newcommand{\mathsol}[2]{\eqnlabel{#1}_{#2}}
+\newcommand{\syst}[1]{\displaystyle{\left\{\begin{aligned}#1\end{aligned}\right.}}
+\newcommand{\systa}[2]{\displaystyle{\left\{\begin{array}{#1}#2\end{array}\right.}}
+\newcommand{\exercice}[2]{\begin{paragraphe}{Exercice #1}#2\end{paragraphe}}
+\newcommand{\exerciceds}[2]{\begin{paragraphe}{Exercice #1}\vspace{.15cm}\newline#2\end{paragraphe}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\vnorm}[1]{\norm{\vect{u}}}
+\newcommand{\prodscal}[2]{\vect{#1}\cdot\vect{#2}}
+\newcommand{\mifty}{-\infty}
+\newcommand{\pifty}{+\infty}
+\newcommand{\fctdisp}[5]{\displaystyle{#1:\left\{\begin{aligned}#2&\rightarrow#3\\#4&\mapsto#5\end{aligned}\right.}}
+\newcommand{\fctdispd}[7]{\displaystyle{#1:\left\{\begin{aligned}#2&\rightarrow#3\\#4&\mapsto#5\\#6&\mapsto#7\end{aligned}\right.}}
+\newcommand{\fctdispsmall}[3]{\displaystyle{#1:#2\rightarrow#3}}
+\newcommand{\fctdispsmallb}[3]{\displaystyle{#2\overset{#1}{\rightarrow}#3}}
+\newcommand{\fctdispsmallm}[3]{\displaystyle{#1:#2\mapsto#3}}
+\newcommand{\curvenn}[2]{\mathscr{#1}_{#2}}
+\newcommand{\curven}[2]{$\curvenn{#1}{#2}$}
+\newcommand{\tddet}[4]{\displaystyle{\left|\begin{array}{rr}#1&#2 \\ #3&#4\end{array}\right|}}
+\newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
+\newcommand{\rep}[1]{\displaystyle{\mathbf{Re}\left(#1\right)}}
+\newcommand{\imp}[1]{\displaystyle{\mathbf{Im}\left(#1\right)}}
+\newcommand{\zarg}[1]{\displaystyle{\mathbf{Arg}\left(#1\right)}}
+\newcommand{\textenum}[3]{$\displaystyle{#1}$, $\displaystyle{#2}$ et~$\displaystyle{#3}$}
+\newcommand{\dropsign}[1]{\smash{\llap{\raisebox{-.5\normalbaselineskip}{$#1$\hspace{2\arraycolsep}}}}}%
+\newcommand{\equationlabel}[3]{\begin{equation}#1\label{#2}\tag{$#3$}\end{equation}}
+\newcommand{\questlabel}[1]{\textcolor{themeColor}{(#1)}}
+\newcommand{\rrp}{\mathbb{R}_+}
+\newcommand{\rrm}{\mathbb{R}_+}
+\newcommand{\rrpe}{\mathbb{R}_+^*}
+\newcommand{\rrme}{\mathbb{R}_-^*}
+\newcommand{\rre}{\mathbb{R}^*}
+\newcommand{\rr}{\mathbb{R}}
+%\newcommand{\cc}{\mathbb{C}}
+\newcommand{\cce}{\mathbb{C}^*}
+\newcommand{\nn}{\mathbb{N}}
+\newcommand{\nne}{\mathbb{N}^*}
+\newcommand{\zz}{\mathbb{Z}}
+\newcommand{\qq}{\mathbb{Q}}
+\newcommand{\uu}{\mathbb{U}}
+\newcommand{\comp}[2]{#1\circ#2}
+\newcommand{\compt}[3]{#1\circ#2\circ#3}
+\newcommand{\comptt}[1]{\varphi\circ#1\circ\varphi^{-1}}
+\newcommand{\fctid}[1]{\textnormal{id}_{#1}}
+\newcommand{\proved}{\hspace*{\fill}$\blacksquare$}
+\newcommand{\perm}[1]{\mathfrak{S}(#1)}
+\newcommand{\conj}[2]{#1\sim#2}
+\newcommand{\parent}[1]{\left(#1\right)}
+\newcommand{\zconj}[1]{\overbar{#1}}
+\newcommand{\congr}[1]{\hspace{.15cm}\left[#1\right]}
+\newcommand{\card}[1]{\textnormal{card}\left(#1\right)}
+\newcommand{\dist}[2]{\textnormal{dist}\coordp{#1}{#2}}
+\newcommand{\entint}[2]{\left\llbracket#1;#2\right\rrbracket}
+\newcommand{\intint}[4]{\displaystyle{\left#1#2;#3\right#4}}
+\newcommand{\tq}{\hspace{.1cm}\large/\hspace{.1cm}}
+\newcommand{\cotan}{\textnormal{ cotan}}
+\newcommand{\ddfrac}[2]{\frac{\displaystyle{#1}}{\displaystyle{#2}}}
+\newcommand*{\diffdchar}{\textnormal{d}}
+\newcommand*{\dd}{\mathop{\diffdchar\!}}
+\newcommand{\der}[1]{\displaystyle{\frac{\dd}{\dd#1}}}
+\newcommand{\derp}[2]{\displaystyle{\frac{\dd{}^{#2}}{\dd#1^{#2}}}}
+\newcommand{\dder}[2]{\displaystyle{\frac{\dd#1}{\dd#2}}}
+\newcommand{\dderp}[3]{\displaystyle{\frac{\dd{}^{#3}#1}{\dd#2^{#3}}}}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../Master"
+%%% End:

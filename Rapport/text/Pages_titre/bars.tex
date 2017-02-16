@@ -1,0 +1,33 @@
+\newgeometry{left=0cm,right=0cm,top=0cm,bottom=0cm}
+\noindent
+\begin{tikzpicture}[remember picture, overlay]
+  \fill [fill tile image*={width=21.4cm}{images/PageTitre/default5}] (16.5,-29.7) rectangle (21,1);
+  \fill [vertforet] (18.5,-15.7) -- (18.5,1) -- (19.5,1) -- (19.5,-15.35) arc  [x radius=.35cm, y radius=.35cm, start angle=0, end angle=-90] -- cycle;
+  \fill [vertforet!75] (17.5,1) rectangle (18.5,-29.7);
+  \fill [vertforet!50] (16.5,1) rectangle (17.5,-29.7);
+  \shade [left color=vertforet!50!black, right color=vertforet] (18.5,-15.69) rectangle (19.1,1);
+  \shade [left color=vertforet!70!black, right color=vertforet!75] (17.5,1) rectangle (18.1,-29.7);
+  \shade [left color=vertforet!80!black, right color=vertforet!50] (16.5,1) rectangle (17.1,-29.7);
+  \draw  [white, line width=1pt] (19.5,0) -- (20.2,0) -- (20.4,-.2) -- (20.4,-.5);
+  \draw  [white, line width=1pt] (20.4,-.57) circle (0.07);
+\end{tikzpicture}
+\null
+\vfill
+\hspace{.1cm}
+\noindent\begin{tikzpicture}
+  \node  (title2) [below right, font=\fontsize{55}{1}\bf\selectfont] at (0,0) {\sujet};
+  \matrix (subtitle) [row sep=1mm,font=\fontsize{20}{1}\selectfont, below right] at (title2.south west){
+    \node {\textbf{\titreI}};\\
+    \node {\titreII};\\
+  };
+  \fill [vertforet] ([xshift=.2cm,yshift=-.25cm]subtitle.south west) rectangle ([xshift=1.2cm,yshift=-.1cm]subtitle.south west);
+  \draw [vertforet, line width=1pt] ([xshift=.2cm,yshift=-.175cm]subtitle.south west) rectangle ([yshift=-.175cm]subtitle.south east);
+\end{tikzpicture}
+\vfill
+\restoregeometry
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../../Fiches_techniques_LaTeX"
+%%% End:
