@@ -30,7 +30,7 @@ Tous les éléments relatifs à la présentation finale du projet.
 *Le travail n'ayant pas encore commencé, ce répertoire est pour le moment vide.*
 
 ## Rapport
-Tous les éléments relatifs au rapport final du projet.
+Tous les éléments relatifs au rapport final du projet. Le document actuel n'est qu'un squelette général pour ce rapport qui sera rempli au fur et à mesure.
 
 [Lien direct vers le rapport](Rapport/Rapport_final_projet_option.pdf)
 
