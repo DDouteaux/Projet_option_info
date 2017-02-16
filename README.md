@@ -17,12 +17,12 @@ La suite de ce texte précisera les différents documents stockés dans ce répe
 ## Premier reporting
 Ce répertoire contient la présentation du premier reporting ainsi que le GANTT associé et un rapide résumé de la première rencontre avec les commanditaires.
 
-[Lien direct vers la présentation](https://github.com/DDouteaux/Projet_option_info/blob/master/Premier%20reporting/Projet_info_reporting_1.pdf)
+[Lien direct vers la présentation](Premier reporting/Projet_info_reporting_1.pdf)
 
 ## Second reporting
 Ce répertoire contient la présentation du second reporting ainsi que le code LaTeX pour la générer.
 
-[Lien direct vers la présentation](https://github.com/DDouteaux/Projet_option_info/blob/master/Deuxième%20reporting/presentation_second_reporting.pdf)
+[Lien direct vers la présentation](Deuxième reporting/presentation_second_reporting.pdf)
 
 ## Présentation finale
 Tous les éléments relatifs à la présentation finale du projet.
@@ -32,7 +32,7 @@ Tous les éléments relatifs à la présentation finale du projet.
 ## Rapport
 Tous les éléments relatifs au rapport final du projet.
 
-*Le travail n'ayant pas encore commencé, ce répertoire est pour le moment vide.*
+[Lien direct vers le rapport](Rapport/Rapport_final_projet_option.pdf)
 
 ## Ressources
 Les bases de données récupérées lors de la prise de contact avec le PAr : [lien](https://drive.google.com/drive/folders/0B8rdUoCkRwk9M0FVNkw4ZnZ0N2s)
