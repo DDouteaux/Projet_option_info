@@ -39,4 +39,4 @@ Les bases de données récupérées lors de la prise de contact avec le PAr : [l
 
 Les liens vers les différents documents de l'état de l'art : [lien](https://docs.google.com/spreadsheets/d/1iqDfR4ECxpFdmqW9mKYTm6-fkV0YFe9014kiegev5kE/edit?usp=drive_web)
 
-Plus de ressources à venir quand le tri dans le projet aura été fait.
+*Plus de ressources à venir quand le tri dans le projet aura été fait.*
