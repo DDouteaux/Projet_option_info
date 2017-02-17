@@ -1,0 +1,55 @@
+%%
+%
+%   Liste des principales bases de données trouvées. Ne pas hésiter à mettre à jour la liste
+%   en fonction de ce que vous trouverez.
+%
+%   ------------------
+%
+%   Structure : Pour chaque base de données préciser les éléments suivants :
+%	- Nom de la base (au pire le nom sera interne à notre projet)
+%	- Lien vers la base où la page où cette dernière est décrite/téléchargeable
+%	- Nombre de données dans cette base (valeurs founies par les auteurs, les vérifications arriveront)
+%	- Remarques diverses sur les annotations, la qualité des sources,...
+%
+%%
+
+Large Movie Review Dataset
+	- http://ai.stanford.edu/~amaas/data/sentiment/aclImdb_v1.tar.gz
+	- Revues de films
+	- 2x25000=50000	
+	- Annotation binaire
+
+UMICH S1650
+	- https://inclass.kaggle.com/c/si650winter11/data
+	- À priori des tweets
+	- 40000	
+	- originellement tirées de opinmind.com
+
+Rotten Tomatoes Dataset
+	- https://www.kaggle.com/c/sentiment-analysis-on-movie-reviews/data	
+	- Revues de films
+	- ? (1.6 MB)
+	- classées en 5 niveaux, les sous-phrases aussi, vient du papier que Louis a lu
+
+Amazon Product Data
+	- http://jmcauley.ucsd.edu/data/amazon/
+	- Revues de produits Amazon
+	- > 83 MILLIONS	vu la taille, bien réfléchir avant de les télécharger : a-t-on vraiment besoin d'autant de données ?
+
+Twitter Sentiment Corpus
+	- http://www.sananalytics.com/lab/twitter-sentiment/
+	- Des Tweets
+	- 5500
+	- Annotation binaire, la source semble fiable et labellisé à la main (mais du coup, pas très volumineux)
+
+Twitter Sentiment Analysis Corpus
+	- http://thinknook.com/twitter-sentiment-analysis-training-corpus-dataset-2012-09-22/
+	- Des Tweets
+	- 1,6 millions de Tweets
+	- Attention, toute l'annotation n'est pas manuelle (plus de détails dans les commentaires du lien). Cette base regroupe en particulier deux autres bases (Twitter Sentiment Corpus & UMICH S1650). Annotation binaire.
+
+Sentiment Analysis Dataset
+	- http://nlp.stanford.edu/sentiment/treebank.html
+	- Diverses sources
+	- 9645
+	- Données sous forme d'arbres syntaxiques pré-labellisé, peut être utilisé en apprentissage. Annotation en plusieurs niveaux (> 5)

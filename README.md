@@ -34,6 +34,17 @@ Tous les éléments relatifs au rapport final du projet. Le document actuel n'es
 
 [Lien direct vers le rapport](Rapport/Rapport_final_projet_option.pdf)
 
+## Bases de données
+Fichier contenant :
+* Les liens vers les différentes bases : [BDDs.txt](BDD/BDDs.txt)
+* Notre code pour leur mise en forme : *à venir*
+* Les bases de données mises en forme : *à venir*
+
+## Réseaux de neurones
+Contenu du fichier à préciser.
+
+*Le travail n'ayant que peu commencé, ce répertoire est pour le moment vide.*
+
 ## Ressources
 Les bases de données récupérées lors de la prise de contact avec le PAr : [lien](https://drive.google.com/drive/folders/0B8rdUoCkRwk9M0FVNkw4ZnZ0N2s)
 
