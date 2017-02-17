@@ -44,9 +44,18 @@ Contenu du fichier à préciser.
 
 *Le travail n'ayant que peu commencé, ce répertoire est pour le moment vide.*
 
+## Articles
+Ce répertoire contient les liens (et quelques résumés) concernant les différents articles consultés pour la partie d'état de l'art du NLP/Deep Learning mais aussi pour les technologies. Les informations présente sont théoriquement similaires à celles du Drive, mais permettent d'avoir accès à ces dernières directement via ce répertoire Git.
+
 ## Ressources
 Les bases de données récupérées lors de la prise de contact avec le PAr : [lien](https://drive.google.com/drive/folders/0B8rdUoCkRwk9M0FVNkw4ZnZ0N2s)
 
 Les liens vers les différents documents de l'état de l'art : [lien](https://docs.google.com/spreadsheets/d/1iqDfR4ECxpFdmqW9mKYTm6-fkV0YFe9014kiegev5kE/edit?usp=drive_web)
+
+Des explications sur le Deep Learning : [lien](https://classroom.udacity.com/courses/ud730/lessons/6377263405/concepts/66010388990923)
+
+Des exlications sur NLP : [lien](https://research.google.com/pubs/NaturalLanguageProcessing.html)
+
+Liste des rapports étudiants de Stanford en Deep Learning : [lien](https://cs224d.stanford.edu/)
 
 *Plus de ressources à venir quand le tri dans le projet aura été fait.*
