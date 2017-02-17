@@ -3,8 +3,7 @@ Répertoire pour stocker les documents de synthèse (et leurs codes) ainsi que l
 
 Le projet traité est le suivant :
 
-> Projet n°11
-> Deep Learning et traitement de langues naturelles et text mining
+> Projet n°11 - Deep Learning et traitement de langues naturelles et text mining
 >
 > Encadré par : Alexandre Saidi, Emmanuel Dellandréa
 >
@@ -36,7 +35,7 @@ Tous les éléments relatifs au rapport final du projet. Le document actuel n'es
 
 ## Bases de données
 Fichier contenant :
-* Les liens vers les différentes bases : [BDDs.txt](BDD/BDDs.txt)
+* Les liens vers les différentes bases : [BDDs.txt](Bases de données/BDDs.txt)
 * Notre code pour leur mise en forme : *à venir*
 * Les bases de données mises en forme : *à venir*
 
