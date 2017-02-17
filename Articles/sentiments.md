@@ -7,4 +7,5 @@ Tous les fichiers listés ici sont (théoriquement) aussi présent dans le Drive
 
 ## Les principaux liens
 [Recursive Deep Models for Semantic Compositionality Over a Sentiment Treebank](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.383.1327&rep=rep1&type=pdf) avec son [résumé](https://docs.google.com/document/d/1vs5FS4toNrCsnXcdoQmtKWvImxkZcpuADH0LEpQgSFE/edit)
+
 [Prominent Feature Extraction for Sentiment Analysis](PDF/Prominent Feature Extraction for Sentiment Analysis.pdf)
