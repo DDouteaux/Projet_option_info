@@ -7,5 +7,5 @@ Tous les fichiers listés ici sont (théoriquement) aussi présent dans le Drive
 
 ## Les principaux liens
 [Extensions to Tree-Recursive Neural Networks for Natural Language Inference](https://cs224d.stanford.edu/reports/GuptaDesai.pdf)
-[Neural Networks for Natural Language Inference](https://cs224d.stanford.edu/reports/Schuster.pdf)
 
+[Neural Networks for Natural Language Inference](https://cs224d.stanford.edu/reports/Schuster.pdf)

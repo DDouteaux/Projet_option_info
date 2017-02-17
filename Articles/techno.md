@@ -10,12 +10,17 @@ Tous les fichiers listés ici sont (théoriquement) aussi présent dans le Drive
 ## Les principaux liens
 
 [Glove: Global Vectors for Word Representation](https://pdfs.semanticscholar.org/b397/ed9a08ca46566aa8c35be51e6b466643e5fb.pdf)
+
 [Learning to Forget: Continual Prediction with LSTM](https://pdfs.semanticscholar.org/3e5d/2d0d5bf450728c8f21df6f921a975c339c45.pdf)
+
 [Long Short-Term Memory](http://web.eecs.utk.edu/~itamar/courses/ECE-692/Bobby_paper1.pdf)
 
 ## Liens génériques
 
 [The art of deep learning (applied to NLP)](https://cs224d.stanford.edu/reports/pascal.pdf)
+
 [Learning Language Models of Movie Characters](https://cs224d.stanford.edu/reports/oguz.pdf)
+
 [Improved Learning through Augmenting the Loss](https://cs224d.stanford.edu/reports/InanKhosravi.pdf)
+
 [Deep Learning for Natural Language Sequence Labelling Applied to Epigenomics](https://cs224d.stanford.edu/reports/Hildick-SmithBahtchevanov.pdf)

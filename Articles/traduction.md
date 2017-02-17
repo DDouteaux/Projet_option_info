@@ -7,5 +7,7 @@ Tous les fichiers listés ici sont (théoriquement) aussi présent dans le Drive
 
 ## Les principaux liens
 [Neural Machine Translation by Joinly Learning to Align and Translate](https://arxiv.org/pdf/1409.0473.pdf)
+
 [Findings of the WMT 2016 Bilingual Document Alignment Shared Task](https://aclweb.org/anthology/W/W16/W16-2347.pdf)
+
 [A Neural Network for Machine Translation, at Production Scale](https://research.googleblog.com/2016/09/a-neural-network-for-machine.html)
