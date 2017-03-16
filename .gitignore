@@ -1,8 +1,3 @@
-## Pour ne pas charger les bases de données brutes et remanièes
-#  dans Git en raison de leur taille.
-Bases de données/BDD Remaniées/
-Bases de données/BDD Brutes/
-
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
@@ -183,3 +178,9 @@ TSWLatexianTemp*
 
 # KBibTeX
 *~[0-9]*
+
+## Pour ne pas charger les bases de données brutes et remanièes
+#  dans Git en raison de leur taille.
+"Bases de données/BDD Remaniées/*"
+"Bases de données/BDD Brutes/*"
+
