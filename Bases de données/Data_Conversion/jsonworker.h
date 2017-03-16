@@ -19,9 +19,13 @@ using namespace std;
 class JsonWorker
 {
 public:
-    JsonWorker(QString inputPath, QString outputPath);
-    QTextStream *inputStream;
-    QTextStream *outputStream;
+    JsonWorker(QString inputPath, QString outputPath, QString bddName_);
+    QFile *inputFile;
+    QFile *outputFile;
+    QString bddName;
+
+    virtual string parseData(QString line) { cout << "Methode generique" << endl; }
+    bool launchWorker();
 
 private:
     bool fileExists(QString path);
