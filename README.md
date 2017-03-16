@@ -16,7 +16,7 @@ La suite de ce texte précisera les différents documents stockés dans ce répe
 ## Premier reporting
 Ce répertoire contient la présentation du premier reporting ainsi que le GANTT associé et un rapide résumé de la première rencontre avec les commanditaires.
 
-[Lien direct vers la présentation](Premier reporting/Projet_info_reporting_1.pdf)
+[Lien direct vers la présentation](/tree/master/Premier reporting/Projet_info_reporting_1.pdf)
 
 ## Second reporting
 Ce répertoire contient la présentation du second reporting ainsi que le code LaTeX pour la générer.
