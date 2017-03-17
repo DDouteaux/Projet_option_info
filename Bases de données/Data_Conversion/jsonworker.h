@@ -26,10 +26,11 @@ public:
 
     virtual string parseData(QString line) { cout << "Methode generique" << endl; }
     bool launchWorker();
+    void loadFile(QString path);
+    string removeSubstrs(string s, string p);
 
 private:
     bool fileExists(QString path);
-    void loadFile(QString path);
     void createOutputFile(QString path);
 };
 

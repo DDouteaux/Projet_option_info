@@ -1,15 +1,23 @@
 #include "jsonworker.h"
 
-/*
+/**
  *  Constructeur générique des workers. Il va en particulier vérifier que
  *  les fichiers de sortie et d'entrée existent.
  *
+ *  Params :
+ *      - inputPath : chemin vers le fichier original à traiter.
+ *                    S'il vaut "", il ne sera pas chargé.
+ *      - outputPath : chemin vers le fichier de sortie de la BDD remaniée.
+ *      - bddName_ : nom de la BDD étudiée.
  */
 JsonWorker::JsonWorker(QString inputPath, QString outputPath, QString bddName_){
+    cout << "INFO    : Construction d'un worker pour la BDD " << this->bddName.toStdString() << "." << endl;
+
     // Création du fichier de sortie s'il n'existe pas
     if(this->fileExists(outputPath)){
         cout << "WARNING : Un fichier de sortie existe deja. Voullez-vous le supprimer ou arreter le traitement." << endl;
         cout << "          [N] pour stopper le traitement ; [O] pour continuer.";
+        cout << "        : Votre choix : ";
         string answer;
         getline(cin, answer);
         if(answer == "o" || answer == "O"){
@@ -23,11 +31,13 @@ JsonWorker::JsonWorker(QString inputPath, QString outputPath, QString bddName_){
         this->createOutputFile(outputPath);
         cout << "INFO    : Creation du fichier de sortie " << outputPath.toStdString() << "." << endl;
     }
-    this->loadFile(inputPath);
+    if(inputPath != ""){
+        this->loadFile(inputPath);
+    }
     this->bddName = bddName_;
 }
 
-/*
+/**
  *  Méthode pour ouvrir le fichier d'entrée ce Worker.
  *
  *  Params :
@@ -41,7 +51,7 @@ void JsonWorker::loadFile(QString path){
     this->inputFile = new QFile(path);
 }
 
-/*
+/**
  *  Méthode pour créer le fichier de sortie pour ce Worker.
  *
  *  Params :
@@ -57,7 +67,7 @@ void JsonWorker::createOutputFile(QString path){
     this->outputFile->close();
 }
 
-/*
+/**
  *  Lancement du job pour faire le traitement des données en entrées.
  *  Cette méthode va appeler les worker associés nécessaires par héritage.
  *
@@ -69,6 +79,7 @@ void JsonWorker::createOutputFile(QString path){
  *
  */
 bool JsonWorker::launchWorker(){
+    // Vérification de l'existence des fichiers d'entrée et de sortie.
     QString inputPath = this->inputFile->fileName();
     QString outputPath = this->outputFile->fileName();
     // On vérifie que le fichier à parser et le fichier de sortie existent bien.
@@ -84,6 +95,7 @@ bool JsonWorker::launchWorker(){
         return false;
     }
 
+    // Lecture du fichier ligne par ligne.
     if (this->inputFile->open(QIODevice::ReadOnly | QIODevice::Text)){
         QTextStream in(this->inputFile);
         this->outputFile->open(QIODevice::WriteOnly | QIODevice::Text);
@@ -97,10 +109,14 @@ bool JsonWorker::launchWorker(){
         }
     }
     cout << "INFO    : Worker termine pour " << this->bddName.toStdString() << "." << endl;
+
+    // Nettoyage espace de travail.
+    this->outputFile->close();
+    this->inputFile->close();
     return true;
 }
 
-/*
+/**
  *  Méthode pour vérifier l'existence d'un fichier donné. La méthode vérifie que le
  *  chemin fournit existe et qu'il s'agit bien d'un fichier et non d'un répertoire.
  *
@@ -114,4 +130,23 @@ bool JsonWorker::launchWorker(){
 bool JsonWorker::fileExists(QString path) {
     QFileInfo check_file(path);
     return (check_file.exists() && check_file.isFile());
+}
+
+/**
+ *  Méthode utilitaire pour retirer des substring d'une chaîne de caractère.
+ *  Toutes les occurences seront retirées.
+ *
+ *  Params :
+ *      - s : la string a modifier.
+ *      - p : la substring à supprimer de s.
+ *
+ *  Return :
+ *      - La string modifiée.
+ */
+string JsonWorker::removeSubstrs(string s, string p) {
+    string::size_type n = p.length();
+    for (string::size_type i = s.find(p); i != string::npos; i = s.find(p)){
+        s.erase(i, n);
+    }
+    return s;
 }
