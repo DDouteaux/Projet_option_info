@@ -13,6 +13,9 @@
 %
 %%
 
+Les bases de données sont stockées dans Google Drive à l'url suivante :
+
+
 Large Movie Review Dataset
 	- http://ai.stanford.edu/~amaas/data/sentiment/aclImdb_v1.tar.gz
 	- Revues de films
