@@ -16,12 +16,12 @@ La suite de ce texte précisera les différents documents stockés dans ce répe
 ## Premier reporting
 Ce répertoire contient la présentation du premier reporting ainsi que le GANTT associé et un rapide résumé de la première rencontre avec les commanditaires.
 
-[Lien direct vers la présentation](Premier reporting/Projet_info_reporting_1.pdf)
+[Lien direct vers la présentation](Premier%20reporting/Projet_info_reporting_1.pdf)
 
 ## Second reporting
 Ce répertoire contient la présentation du second reporting ainsi que le code LaTeX pour la générer.
 
-[Lien direct vers la présentation](Deuxième reporting/presentation_second_reporting.pdf)
+[Lien direct vers la présentation](Deuxième%20reporting/presentation_second_reporting.pdf)
 
 ## Présentation finale
 Tous les éléments relatifs à la présentation finale du projet.
@@ -35,9 +35,11 @@ Tous les éléments relatifs au rapport final du projet. Le document actuel n'es
 
 ## Bases de données
 Fichier contenant :
-* Les liens vers les différentes bases : [BDDs.txt](Bases de données/BDDs.txt)
-* Notre code pour leur mise en forme : *à venir*
-* Les bases de données mises en forme : *à venir*
+* Les liens vers les différentes bases : [BDDs.txt](Bases%20de%20données/BDDs.txt)
+* Notre code pour leur mise en forme : [Répertoire du code](Bases%20de%20données/Data_Conversion)
+* Les bases de données mises en forme : [Google Drive](https://drive.google.com/drive/folders/0B-qeHiX-LTwoWnEtTDk3ZkNFZGM)
+
+Les bases de données initiales et finales contenant des fichiers volumineux, elles n'ont pas été ajoutées directement à ce répertoire Git. En particulier, les bases non remaniées sont accessibles aux liens du fichier [BDDs.txt](Bases%20de%20données/BDDs.txt). Les bases de données remaniées sont elles récupérables sur un de nos dossier de stockage [Google Drive](https://drive.google.com/drive/folders/0B-qeHiX-LTwoWnEtTDk3ZkNFZGM).
 
 ## Réseaux de neurones
 Contenu du fichier à préciser.
