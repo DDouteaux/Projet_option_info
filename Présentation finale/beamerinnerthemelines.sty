@@ -1,0 +1,96 @@
+%%
+%
+%	Configurations la slide de titre
+% 	
+%	/!\ Le template n'est pas totalement automatisé, nécessité de bidouiller
+%		un peu à la main pour avoir le rendu attendu...
+%		Ce fichier sera modifié dans une version ultérieure du template.
+%
+%	--------------------
+%	Distribué sous license GNU-Linux
+%
+%	This program is free software: you can redistribute it and/or modify
+%   it under the terms of the GNU General Public License as published by
+%   the Free Software Foundation, either version 3 of the License, or
+%   (at your option) any later version.
+%   This program is distributed in the hope that it will be useful,
+%   but WITHOUT ANY WARRANTY; without even the implied warranty of
+%   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%   GNU General Public License for more details.
+%   You should have received a copy of the GNU General Public License
+%   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+%
+%%
+
+\mode<presentation>
+
+% Le fond des pages de la présentation. Le cas \thepage=1 correspond à la page de titre.
+%
+% /!\ Pour la page de titre, nécessité d'avoir le fichier images/theme/fond
+\setbeamertemplate{background}{%
+		\ifnum\thepage=1\relax
+			\begin{tikzpicture}
+				\useasboundingbox (0,0) rectangle(\the\paperwidth ,\the\paperheight);
+				\fill[black, opacity=1] (0,0) rectangle (\the\paperwidth, \the\paperheight);
+				\node[anchor=south west] at (0,.25\paperheight) {\includegraphics[height=.5\paperheight]{images/theme/fond}};
+			\end{tikzpicture}
+		\fi
+		\ifnum\thepage>1\relax%
+			\begin{tikzpicture}
+				\useasboundingbox (0,0) rectangle(\the\paperwidth ,\the\paperheight);
+				\fill[white, opacity=1] (0,0) rectangle (\the\paperwidth, \the\paperheight);
+			\end{tikzpicture}
+		\fi
+}
+
+% Définition du contenu de la page de titre.
+% 
+% /!\ Des optimisations à faire ici pour que tout soit parfaitement automatisé...
+%	  Toujours des choses à faire à la main.
+%
+% /!\ Nécessité d'avoir le fichier images/theme/logopng qui est le logo de l'organisme.
+\defbeamertemplate*{title page}{texsx}[1][]	{%
+	\vspace*{-.18cm}
+	\hspace*{-2.11cm}
+	\begin{beamercolorbox}[wd=\the\paperwidth]{titlebox}
+		\begin{tikzpicture}%
+			\fill [themeColor] (0,0) rectangle (\the\paperwidth, .7);
+			\node [white, anchor=west] at (0,.3) {\textbf{\MakeUppercase\inserttitle}};
+			\node [anchor=south east] at (\the\paperwidth, -.1) {\includegraphics[height=.7cm]{images/theme/logopng}};
+		\end{tikzpicture}%
+	\end{beamercolorbox}
+
+	\vspace*{4.25cm}
+	
+	\hfill
+	\hspace*{-2.11cm}
+	\begin{beamercolorbox}[ht=10ex,dp=3.5ex]{subtitlebox}
+		\hfill
+		\begin{tikzpicture}
+			\fill [themeColor] (0,0) rectangle (.2, 1.5);
+			\fill [themeColor, opacity=.5] (.2,0) rectangle ({21/28*\textwidth}, 1.5);
+			\node [white, anchor=south west, text width={21/28*\textwidth-3}] (title) at (.2,.2) {\textbf{\large\insertsubtitle}};
+			\matrix (noms) [below, align=right, minimum width={9/14*\textwidth-1}, white, row sep=.1cm] at ([yshift=-.5cm]title.south) {
+				\node {Damien~\textsc{Douteaux}};\\
+				\node {Vincent~\textsc{Hocquemiller}};\\
+				\node {Louis~\textsc{Redonnet}};\\
+			};
+		\end{tikzpicture}
+	\end{beamercolorbox}
+	\hspace{-1.4cm}
+
+	\vspace*{\fill}
+
+	\vspace*{1.1cm}
+
+	\hspace*{-2.11cm}
+	\begin{beamercolorbox}[wd=\the\paperwidth]{date}
+		\begin{tikzpicture}%
+			\fill [themeColor] (0,0) rectangle (\the\paperwidth, .7);
+			\node [white, anchor=west] at (0,.32) {\textbf{SECOND REPORTING}};
+			\node [anchor=east] at (\the\paperwidth, .32) {\textbf{Jeudi 16 février 2017}};
+		\end{tikzpicture}%
+	\end{beamercolorbox}
+}
+
+\mode<all>

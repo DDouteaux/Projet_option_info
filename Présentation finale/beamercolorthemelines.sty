@@ -1,0 +1,92 @@
+%%
+%
+%	Configurations liées aux styles, aux couleurs,...
+%
+%	--------------------
+%	Distribué sous license GNU-Linux
+%
+%	This program is free software: you can redistribute it and/or modify
+%   it under the terms of the GNU General Public License as published by
+%   the Free Software Foundation, either version 3 of the License, or
+%   (at your option) any later version.
+%   This program is distributed in the hope that it will be useful,
+%   but WITHOUT ANY WARRANTY; without even the implied warranty of
+%   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%   GNU General Public License for more details.
+%   You should have received a copy of the GNU General Public License
+%   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+%
+%%
+
+\mode<presentation>
+
+% Liste de couleurs personnalisées
+\definecolor{themeColor}{RGB}{0,82,148}
+\definecolor{vertforet}{RGB}{20,83,20}
+\definecolor{vvertforet}{RGB}{0,107,47}
+\definecolor{bordeau}{RGB}{199,16,26}
+\definecolor{gris}{RGB}{195,195,195}
+\definecolor{bluenight}{RGB}{0,82,148}
+\definecolor{violet}{RGB}{112,4,98}
+\definecolor{amber}{RGB}{255,110,0}
+\definecolor{mygray}{RGB}{125,125,125}
+
+% Quelques commandes pour utiliser facilement les principales couleurs
+% sur du texte ou autre.
+\newcommand\currentColor{themeColor}
+\newcommand\thColor[1]{\textcolor{themeColor}{#1}}
+\newcommand\curColor[1]{\textcolor{\currentColor}{#1}}
+\newcommand\headColor[1]{\textcolor{\headersColor}{#1}}
+\newcommand\wiColor[1]{\textcolor{white}{#1}}
+
+% Couleur de textes pour différents éléments
+\setbeamercolor*{title page header}{fg=white}
+\setbeamercolor*{author}{fg=white}
+\setbeamercolor*{date}{fg=white}
+\setbeamerfont{title}{shape=\scshape,series=\bfseries} 
+\setbeamerfont{frametitle}{shape=\scshape,series=\bfseries}
+
+% Définition de styles pour les blocs
+\setbeamercolor{block title}{fg=white, bg=themeColor}
+\setbeamercolor{block body}{fg=black}
+\setbeamercolor{block title example}{fg=white, bg=vverforet}
+\setbeamercolor{block body example}{fg=black}
+\setbeamercolor{block title alerted}{fg=white, bg=bordeau}
+\setbeamercolor{block body alerted}{fg=black}
+\setbeamercolor{alerted text}{fg=bordeau}
+
+% Définition de styles pour les listes
+\setbeamercolor{enumerate item}{fg=themeColor}
+\setbeamercolor{itemize item}{fg=themeColor}
+
+% Définition de style pour les sections
+\setbeamercolor{section in toc}{fg=themeColor}
+\setbeamercolor{section in sidebar}{fg=white}		        	 %color of the active section
+\setbeamercolor{section in sidebar shaded}{fg=themeColor!40}     %color of the inactive section
+\setbeamercolor{subsection in sidebar}{fg=white}    		     %color of the active subsection
+\setbeamercolor{subsection in sidebar shaded}{fg=themeColor!40}  %color of the inactive subsection
+
+% Définition des styles pour la sidebar
+\setbeamerfont{section in sidebar}{shape=\bfseries, size=\fontsize{8}{8}}
+\setbeamerfont{subsection in sidebar}{size=\fontsize{6}{6}\selectfont}
+\setbeamerfont{section in sidebar shaded}{shape=\normalshape, size=\fontsize{8}{8}}
+
+% Définition custom pour les listes utilisant un style personnel de puces
+\newcommand\mybullet{\tikz{\draw [color=\currentColor, fill=\currentColor] (0,0) circle [radius=.03cm]; \draw [color=\currentColor,thick] (0,0) circle [radius=0.1cm];}}
+
+% Commande personnalisée pour un item afin de raccourcir le code d'appel
+\newcommand\itemperso[1]{\item[\mybullet]~\textit{\textcolor{\currentColor}{#1}}\ifthenelse{\equal{#1}{}}{}{\hspace{0.5cm}}}
+
+% Compléments pour les styles des items
+\setbeamertemplate{itemize item}{\scriptsize\raise1.25pt\hbox{\mybullet}}
+\setbeamertemplate{itemize subitem}{\tiny\raise1.5pt\hbox{\donotcoloroutermaths$\blacktriangleright$}}
+\setbeamertemplate{itemize subsubitem}{\tiny\raise1.5pt\hbox{\donotcoloroutermaths$\blacktriangleright$}}
+\setbeamertemplate{enumerate item}{\insertenumlabel.}
+\setbeamertemplate{enumerate subitem}{\insertenumlabel.\insertsubenumlabel}
+\setbeamertemplate{enumerate subsubitem}{\insertenumlabel.\insertsubenumlabel.\insertsubsubenumlabel}
+\setbeamertemplate{enumerate mini template}{\insertenumlabel}
+
+% Définition de style pour les titres de paragraphes dans une slide
+\newcommand{\paraTitle}[1]{\bigskip\textbf{\textcolor{themeColor}{#1}}}
+
+\mode<all>
