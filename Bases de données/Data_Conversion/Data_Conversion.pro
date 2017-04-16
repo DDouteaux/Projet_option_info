@@ -8,8 +8,6 @@ SOURCES += main.cpp \
     amazonworker.cpp \
     rottenworker.cpp \
     largemovieworker.cpp \
-    twitterworker.cpp \
-    umichworker.cpp \
     sentimentworker.cpp
 
 HEADERS += \
@@ -17,7 +15,5 @@ HEADERS += \
     amazonworker.h \
     rottenworker.h \
     largemovieworker.h \
-    twitterworker.h \
-    umichworker.h \
     sentimentworker.h
 

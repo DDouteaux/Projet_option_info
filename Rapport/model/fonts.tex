@@ -6,17 +6,23 @@
 %\usepackage{fontawesome} % to have web fonts
 
 
-\usepackage{fontspec}
+\usepackage[no-math]{fontspec}
 \usepackage[math]{kurier} % main font
-%\usepackage[T1]{fontenc} % font encoding
+\usepackage[T1]{fontenc} % font encoding
 \DeclareTextCommandDefault{\nobreakspace}{\leavevmode\nobreak\ } % Because T1 disable this command, we redefine it
-\newfontfamily\aniron{Aniron}
-% \newfontfamily\titlePageFont{Canter Bold}
-\newfontfamily\titlePageFont{Economica-Regular}
-\setmainfont{Fira Sans Light}
-\usepackage{fontawesome} % to have web fonts
 
-%%% Local Variables:
-%%% mode: latex
-%%% TeX-master: "../XGBoost"
-%%% End:
+\newfontfamily\titlePageFont[Path=./fonts/, Extension=.otf]{Economica-Regular}
+
+\let\oldtexttt\texttt
+\renewcommand{\texttt}[2][black]{\textcolor{gray}{\itshape\ttfamily #2}}
+
+
+%\usepackage{fontspec}
+%\usepackage[math]{kurier} % main font
+%\usepackage[T1]{fontenc} % font encoding
+%\DeclareTextCommandDefault{\nobreakspace}{\leavevmode\nobreak\ } % Because T1 disable this command, we redefine it
+%\newfontfamily\aniron{Aniron}
+% \newfontfamily\titlePageFont{Canter Bold}
+%\newfontfamily\titlePageFont{Economica-Regular}
+%\setmainfont{Fira Sans Light}
+%\usepackage{fontawesome} % to have web fonts

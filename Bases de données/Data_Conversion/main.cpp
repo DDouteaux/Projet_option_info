@@ -8,6 +8,8 @@ using namespace std;
 #include "jsonworker.h"
 #include "amazonworker.h"
 #include "largemovieworker.h"
+#include "sentimentworker.h"
+#include "rottenworker.h"
 
 int main()
 {
@@ -15,7 +17,9 @@ int main()
      *  Définir quels traitements sont à lancer.
      *  Pour les chemins vers les BDD, voir les différentes parties associées à chaque BDD.
      */
-    bool launchLMRD = false;            // Toute la base Large Movie DataBase.
+    bool launchSentiment = false;       // Toute la base Sentiment Analysis Dataset.
+    bool launchRotten = false;          // Toute la base Rotten Tomatoes.
+    bool launchLMDB = false;            // Toute la base Large Movie DataBase.
     bool launchAmazonAll = false;       // Toute la base d'Amazon.
     bool launchAmazonInf100 = false;    // Les éléments d'Amazon de taille < 100Mo.
     bool launchAmazon100500 = false;    // Les éléments d'Amazon où 100Mo < taille < 500Mo.
@@ -26,10 +30,14 @@ int main()
      *  Renseignez les valeurs attendues pour les chemins relatifs vers
      *  la base de données en fonction de votre implémentation.
      *
+     *  En renseignant les noms des sous-répertoires, le code va chercher
+     *  de lui-même tous les répertoires possibles de cette BDD dans votre
+     *  arborescence (il n'y a donc qu'un seul appel à faire).
+     *
      *  Temps d'exécution < 5 minutes.
      *
      **/
-    if(launchLMRD){
+    if(launchLMDB){
         QString lmrdPath = "../BDD Brutes/Large Movie Review Dataset/";
         QString testPath = "test/";
         QString trainPath = "train/";
@@ -37,6 +45,40 @@ int main()
         QString posPath = "pos/";
         LargeMovieWorker largeMovieWorker("", "../BDD Remaniées/Large_Movie_Dataset.csv", "Large Movie DB", lmrdPath, testPath, trainPath, negPath, posPath);
         largeMovieWorker.launchWorker();
+    }
+
+    /**
+     *  Lancement du worker pour la base de données Sentiment Analysis Dataset.
+     *  Renseignez les valeurs attendues pour les chemins relatifs vers
+     *  la base de données en fonction de votre implémentation.
+     *
+     *  Temps d'exécution < 5 minutes.
+     *
+     **/
+    if(launchSentiment){
+        string sentimentInputPath = "../BDD Brutes/Sentiment Analysis Dataset/trees/";
+        string sentimentOutputPath = "../BDD Remaniées/";
+        SentimentWorker sentimentDevWorker(QString::fromStdString(sentimentInputPath + "dev.txt"), QString::fromStdString(sentimentOutputPath + "Sentiment_Dev.csv"), "Sentiment_Analysis_Dataset");
+        sentimentDevWorker.launchWorker();
+        SentimentWorker sentimentTestWorker(QString::fromStdString(sentimentInputPath + "test.txt"), QString::fromStdString(sentimentOutputPath + "Sentiment_Test.csv"), "Sentiment_Analysis_Dataset");
+        sentimentTestWorker.launchWorker();
+        SentimentWorker sentimentTrainWorker(QString::fromStdString(sentimentInputPath + "train.txt"), QString::fromStdString(sentimentOutputPath + "Sentiment_Train.csv"), "Sentiment_Analysis_Dataset");
+        sentimentTrainWorker.launchWorker();
+    }
+
+    /**
+     *  Lancement du worker pour la base de données Rotten Tomatoes.
+     *  Renseignez les valeurs attendues pour les chemins relatifs vers
+     *  la base de données en fonction de votre implémentation.
+     *
+     *  Temps d'exécution < 5 minutes.
+     *
+     **/
+    if(launchRotten){
+        string rottenInputPath = "../BDD Brutes/Rotten Tomatoes/";
+        string rottenOutputPath = "../BDD Remaniées/";
+        RottenWorker rottenWorker(QString::fromStdString(rottenInputPath + "Rotten_Tomatoes_train.tsv"), QString::fromStdString(rottenOutputPath + "Rotten_Tomatoes.csv"), "Rotten_Tomatoes");
+        rottenWorker.launchWorker();
     }
 
     /**

@@ -105,7 +105,9 @@ bool JsonWorker::launchWorker(){
         while(!in.atEnd()){
             QString line = in.readLine();
             QString newLine = QString::fromStdString(this->parseData(line));
-            out << newLine << endl;
+            if(!newLine.trimmed().isEmpty()){
+                out << newLine << endl;
+            }
         }
     }
     cout << "INFO    : Worker termine pour " << this->bddName.toStdString() << "." << endl;
