@@ -16,8 +16,8 @@ JsonWorker::JsonWorker(QString inputPath, QString outputPath, QString bddName_){
     // Création du fichier de sortie s'il n'existe pas
     if(this->fileExists(outputPath)){
         cout << "WARNING : Un fichier de sortie existe deja. Voullez-vous le supprimer ou arreter le traitement." << endl;
-        cout << "          [N] pour stopper le traitement ; [O] pour continuer.";
-        cout << "        : Votre choix : ";
+        cout << "          [N] pour stopper le traitement ; [O] pour continuer." << endl;
+        cout << "          Votre choix : ";
         string answer;
         getline(cin, answer);
         if(answer == "o" || answer == "O"){
