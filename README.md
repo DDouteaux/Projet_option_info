@@ -11,8 +11,6 @@ Le projet traité est le suivant :
 
 La suite de ce texte précisera les différents documents stockés dans ce répertoire ainsi que des liens utiles pour le projet.
 
-**Nous n'en sommes actuellement qu'à l'initialisation de ce répertoire de dépôt, n'hésitez pas à revenir quand plus de ressources et éléments seront disponibles.**
-
 ## Premier reporting
 Ce répertoire contient la présentation du premier reporting ainsi que le GANTT associé et un rapide résumé de la première rencontre avec les commanditaires.
 
