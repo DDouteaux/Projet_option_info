@@ -24,9 +24,9 @@ Ce répertoire contient la présentation du second reporting ainsi que le code L
 [Lien direct vers la présentation](Deuxième%20reporting/presentation_second_reporting.pdf)
 
 ## Présentation finale
-Tous les éléments relatifs à la présentation finale du projet.
-
-*Le travail n'ayant pas encore commencé, ce répertoire est pour le moment vide.*
+Ce répertoire contient tous les éléments relatifs à notre présentation finale, avec en partie les deux versions fournies :
+* Pour l'option info : [lien](Présentation%20finale/presentation_finale_info.pdf)
+* Pour l'option maths : [lien](Présentation%20finale/presentation_finale_maths.pdf)
 
 ## Rapport
 Tous les éléments relatifs au rapport final du projet. Le document actuel n'est qu'un squelette général pour ce rapport qui sera rempli au fur et à mesure.
@@ -42,12 +42,7 @@ Fichier contenant :
 Les bases de données initiales et finales contenant des fichiers volumineux, elles n'ont pas été ajoutées directement à ce répertoire Git. En particulier, les bases non remaniées sont accessibles aux liens du fichier [BDDs.txt](Bases%20de%20données/BDDs.txt). Les bases de données remaniées sont elles récupérables sur un de nos dossier de stockage [Google Drive](https://drive.google.com/drive/folders/0B-qeHiX-LTwoWnEtTDk3ZkNFZGM).
 
 ## Réseaux de neurones
-Contenu du fichier à préciser.
-
-*Le travail n'ayant que peu commencé, ce répertoire est pour le moment vide.*
-
-## Articles
-Ce répertoire contient les liens (et quelques résumés) concernant les différents articles consultés pour la partie d'état de l'art du NLP/Deep Learning mais aussi pour les technologies. Les informations présente sont théoriquement similaires à celles du Drive, mais permettent d'avoir accès à ces dernières directement via ce répertoire Git.
+Ce répertoire contient notre exemple jouet ainsi qu'une utilisation de LSTM sur une partie de la base de données IMDB et Amazon.
 
 ## Ressources
 Les bases de données récupérées lors de la prise de contact avec le PAr : [lien](https://drive.google.com/drive/folders/0B8rdUoCkRwk9M0FVNkw4ZnZ0N2s)
@@ -59,5 +54,3 @@ Des explications sur le Deep Learning : [lien](https://classroom.udacity.com/cou
 Des exlications sur NLP : [lien](https://research.google.com/pubs/NaturalLanguageProcessing.html)
 
 Liste des rapports étudiants de Stanford en Deep Learning : [lien](https://cs224d.stanford.edu/)
-
-*Plus de ressources à venir quand le tri dans le projet aura été fait.*
